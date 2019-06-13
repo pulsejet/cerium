@@ -1,0 +1,9 @@
+<div *ngIf="form.pages">
+  <button (click)="addWidget()">Add Widget</button>
+  <div *ngFor="let page of form.pages; let i = index">
+    Page {{ i + 1 }} of {{ form.pages.length }}
+
+    <app-editable-widget *ngFor="let widget of page.widgets" [widget]="widget">
+    </app-editable-widget>
+  </div>
+</div>

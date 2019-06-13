@@ -1,0 +1,7 @@
+<div *ngIf="editable">
+  <textarea disabled> Long answer text </textarea>
+</div>
+
+<div *ngIf="!editable">
+  <textarea [(ngModel)]="props.text" placeholder="Long answer text"> </textarea>
+</div>

@@ -1,0 +1,7 @@
+<div *ngIf="editable">
+  <input disabled value="Short answer text" />
+</div>
+
+<div *ngIf="!editable">
+  <input [(ngModel)]="props.text" placeholder="Short answer text" />
+</div>
