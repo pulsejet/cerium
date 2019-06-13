@@ -46,4 +46,9 @@ export class WMultipleChoiceComponent implements OnInit {
     );
   }
 
+  otherChange(e: any) {
+    this.props.other_val = e.target.value;
+    this.props.response = this.props.other_val;
+  }
+
 }
