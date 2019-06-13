@@ -3,7 +3,7 @@ button.add-widget {
 }
 
 .widget:focus-within, .cdk-drag-preview {
-    border-left: 4px solid blueviolet;
+    border-left: 4px solid var(--primary-dark);
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.3);
 }
 
@@ -28,7 +28,7 @@ button.add-widget {
     padding-bottom: 30px;
     margin: 15px 0;
     border-left: 4px solid transparent;
-    transition: all 0.5s ease;
+    transition: border-left 0.5s ease, box-shadow 0.5s ease;
 }
 
 .drag-handle {

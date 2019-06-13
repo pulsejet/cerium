@@ -1,17 +1,20 @@
 html, body {
     height: 100%;
+    --primary-color: rgb(240, 235, 248);
+    --primary-dark: rgb(103, 58, 183);
+    --primary-dark-fore: white;
 }
 
 body {
     margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: rgb(240, 235, 248);
+    background-color: var(--primary-color);
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
 .drag-preview {
-    background-color: blueviolet;
-    color: white;
+    background-color: var(--primary-dark);
+    color: var(--primary-dark-fore);
     padding: 20px;
     max-width: 500px;
     word-wrap: normal;

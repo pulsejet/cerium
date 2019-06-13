@@ -8,10 +8,10 @@ div.save {
 }
 
 .page-no {
-    background-color: blueviolet;
+    background-color: var(--primary-dark);
     padding: 10px;
     padding-left: 20px;
-    color: white;
+    color: var(--primary-dark-fore);
     font-weight: 300;
     font-size: 1.3em;
 }
