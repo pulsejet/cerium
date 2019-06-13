@@ -6,8 +6,7 @@
 
   <div cdkDropList (cdkDropListDropped)="dropped($event)">
     <div class="widget"
-         *ngFor="let widget of page.widgets"
-         cdkDragLockAxis="y" cdkDrag>
+         *ngFor="let widget of page.widgets" cdkDrag>
 
       <div class="drag-handle" cdkDragHandle>
         <img src="assets/move.svg" width=15>
