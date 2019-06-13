@@ -55,3 +55,8 @@ body {
 .mat-form-field > .mat-form-field-wrapper {
     margin-bottom: -1.25em;
 }
+
+.plain-input {
+    border: none;
+    font-size: 1em;
+}

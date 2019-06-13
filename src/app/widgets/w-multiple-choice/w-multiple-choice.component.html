@@ -23,7 +23,7 @@
     <button mat-button class="add-other" (click)="props.other = !props.other">TOGGLE "OTHER"</button>
 </div>
 
-<div *ngIf="!editable">
+<div *ngIf="!editable && !checkbox">
     <mat-radio-group
         class="radio-group"
         [(ngModel)]="props.response">
@@ -33,8 +33,20 @@
         </mat-radio-button>
 
         <mat-radio-button class="radio-button" *ngIf="props.other" [value]="props.other_val">
-            <input matInput (input)="otherChange($event)" placeholder="Your answer" />
+            <input matInput (input)="otherChange($event)" placeholder="Your answer" class="plain-input" />
         </mat-radio-button>
     </mat-radio-group>
+</div>
 
+<div *ngIf="!editable && checkbox">
+    <div class="radio-group">
+        <mat-checkbox class="radio-button" *ngFor="let opt of props.options" [(ngModel)]="opt.checked">
+            {{ opt.value}}
+        </mat-checkbox>
+
+        <mat-checkbox class="radio-button" [(ngModel)]="props.other_checked" *ngIf="props.other">
+            <input matInput [(ngModel)]="props.other_val"
+                   placeholder="Your answer" class="check-other plain-input" />
+        </mat-checkbox>
+    </div>
 </div>

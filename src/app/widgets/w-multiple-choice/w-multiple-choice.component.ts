@@ -9,6 +9,7 @@ import { moveItemInArray, CdkDragDrop } from '@angular/cdk/drag-drop';
 export class WMultipleChoiceComponent implements OnInit {
 
   @Input() editable = false;
+  @Input() checkbox = false;
   @Input() props: any = {};
 
   @ViewChildren('option') options;

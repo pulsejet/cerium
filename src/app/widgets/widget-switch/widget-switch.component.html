@@ -10,4 +10,8 @@
   <app-w-multiple-choice *ngSwitchCase="WIDGET_TYPES.multiple_choice"
                       [editable]="editable" [props]="widget.props">
   </app-w-multiple-choice>
+
+  <app-w-multiple-choice *ngSwitchCase="WIDGET_TYPES.checkboxes"
+                      [editable]="editable" [props]="widget.props" [checkbox]="true">
+  </app-w-multiple-choice>
 </ng-container>
