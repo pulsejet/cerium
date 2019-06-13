@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IForm, IPage, IWidget, WIDGET_TYPES } from '../interfaces';
+import { IForm, IPage } from '../interfaces';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-new-form',
@@ -10,7 +11,9 @@ export class NewFormComponent implements OnInit {
 
   form: IForm = {} as IForm;
 
-  constructor() { }
+  constructor(
+    public http: HttpClient,
+  ) { }
 
   ngOnInit() {
     this.form.pages = [] as IPage[];
@@ -20,6 +23,8 @@ export class NewFormComponent implements OnInit {
   }
 
   save() {
-    console.log(this.form);
+    this.http.post('/api/form', this.form).subscribe(result => {
+      console.log(result);
+    });
   }
 }

@@ -1,0 +1,13 @@
+.page {
+    margin: 20px 0;
+    background-color: white;
+    padding: 10px 25px;
+}
+
+.widget {
+    padding: 10px 0;
+    margin: 15px 0;
+    border-left: 4px solid transparent;
+    transition: border-left 0.5s ease;
+}
+

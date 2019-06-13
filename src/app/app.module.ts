@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +12,8 @@ import { WShortAnswerComponent } from './widgets/w-short-answer/w-short-answer.c
 import { WParagraphComponent } from './widgets/w-paragraph/w-paragraph.component';
 import { PrimeComponentsModule } from './prime-components.module';
 import { NewPageComponent } from './new-page/new-page.component';
+import { FormComponent } from './form/form.component';
+import { WidgetComponent } from './widget/widget.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +22,15 @@ import { NewPageComponent } from './new-page/new-page.component';
     EditableWidgetComponent,
     WShortAnswerComponent,
     WParagraphComponent,
-    NewPageComponent
+    NewPageComponent,
+    FormComponent,
+    WidgetComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     PrimeComponentsModule,
   ],

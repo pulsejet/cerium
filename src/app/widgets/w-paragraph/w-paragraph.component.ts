@@ -10,7 +10,7 @@ export class WParagraphComponent implements OnInit {
   @Input() editable = false;
   @Input() props: any = {};
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }

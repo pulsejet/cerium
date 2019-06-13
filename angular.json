@@ -59,7 +59,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "cerium:build"
+            "browserTarget": "cerium:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {

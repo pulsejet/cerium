@@ -1,0 +1,12 @@
+<div *ngIf="form && form.pages" class="main">
+  <div class="save">
+    <button (click)="submit()" class="save" mat-raised-button color="accent"> SUBMIT </button>
+  </div>
+
+  <div *ngFor="let page of form.pages" class="page z-depth-1">
+      <div class="widget"
+           *ngFor="let widget of page.widgets">
+        <app-widget [widget]="widget"></app-widget>
+    </div>
+  </div>
+</div>

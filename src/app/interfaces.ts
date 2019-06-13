@@ -13,6 +13,7 @@ export interface IWidget {
     type: string;
     uid: string;
     props: any;
+    response: any;
 }
 
 export interface IFormResponse {

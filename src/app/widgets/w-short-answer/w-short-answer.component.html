@@ -1,4 +1,4 @@
 <mat-form-field floatLabel="never" class="form-field">
   <input matInput *ngIf="editable" disabled value="Short answer text" />
-  <input matInput *ngIf="!editable" type="text" [(ngModel)]="props.text" placeholder="Short answer text" />
+  <input matInput *ngIf="!editable" type="text" [(ngModel)]="props.response" placeholder="Your answer" />
 </mat-form-field>
