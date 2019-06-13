@@ -16,6 +16,7 @@ import { FormComponent } from './form/form.component';
 import { WidgetComponent } from './widget/widget.component';
 import { WMultipleChoiceComponent } from './widgets/w-multiple-choice/w-multiple-choice.component';
 import { WidgetSwitchComponent } from './widgets/widget-switch/widget-switch.component';
+import { WLinearComponent } from './widgets/w-linear/w-linear.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { WidgetSwitchComponent } from './widgets/widget-switch/widget-switch.com
     FormComponent,
     WidgetComponent,
     WMultipleChoiceComponent,
-    WidgetSwitchComponent
+    WidgetSwitchComponent,
+    WLinearComponent
   ],
   imports: [
     BrowserModule,

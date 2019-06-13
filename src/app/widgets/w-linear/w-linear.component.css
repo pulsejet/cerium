@@ -1,0 +1,28 @@
+.lu-val {
+    width: 40px;
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.to, .label {
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.label {
+    margin-right: 10px;
+    font-size: 0.8em;
+    color: gray;
+}
+
+.linear-box, .radio-group {
+    display: flex;
+}
+
+.linear-box div, .radio-button {
+    flex-grow: 1;
+}
+
+.right-align {
+    text-align: right;
+}

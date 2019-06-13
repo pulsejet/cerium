@@ -1,0 +1,47 @@
+<div class="editable" *ngIf="editable">
+  <div>
+    <mat-form-field class="lu-val">
+      <mat-select [(ngModel)]="props.lower">
+        <mat-option *ngFor="let v of lowerValues" [value]="v">
+          {{ v }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="to">to</div>
+    <mat-form-field class="lu-val">
+      <mat-select [(ngModel)]="props.upper">
+        <mat-option *ngFor="let v of upperValues" [value]="v">
+          {{ v }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <div class="label"> {{ props.lower }} </div>
+    <mat-form-field floatLabel="never">
+      <input matInput [(ngModel)]="props.lower_label" placeholder="Label" />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <div class="label"> {{ props.upper }} </div>
+    <mat-form-field floatLabel="never">
+      <input matInput [(ngModel)]="props.upper_label" placeholder="Label" />
+    </mat-form-field>
+  </div>
+</div>
+
+<div *ngIf="!editable && options">
+  <br />
+
+  <div class="linear-box">
+    <div>{{ props.lower_label }}</div>
+    <div>
+      <mat-radio-group class="radio-group" [(ngModel)]="props.response">
+        <mat-radio-button class="radio-button" *ngFor="let opt of options" [value]="opt"></mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="right-align"> {{ props.upper_label }}</div>
+  </div>
+</div>

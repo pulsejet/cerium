@@ -15,7 +15,7 @@ export class NewPageComponent implements OnInit {
 
   ngOnInit() {
     this.page.widgets.push({
-      type: WIDGET_TYPES.multiple_choice
+      type: WIDGET_TYPES.linear
     } as IWidget);
   }
 

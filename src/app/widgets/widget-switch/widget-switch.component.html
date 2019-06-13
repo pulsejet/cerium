@@ -14,4 +14,8 @@
   <app-w-multiple-choice *ngSwitchCase="WIDGET_TYPES.checkboxes"
                       [editable]="editable" [props]="widget.props" [checkbox]="true">
   </app-w-multiple-choice>
+
+  <app-w-linear *ngSwitchCase="WIDGET_TYPES.linear"
+                      [editable]="editable" [props]="widget.props">
+  </app-w-linear>
 </ng-container>
