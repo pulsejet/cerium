@@ -1,7 +1,4 @@
-<div *ngIf="editable">
-  <textarea disabled> Long answer text </textarea>
-</div>
-
-<div *ngIf="!editable">
-  <textarea [(ngModel)]="props.text" placeholder="Long answer text"> </textarea>
-</div>
+<mat-form-field floatLabel="never" class="form-field">
+  <input matInput *ngIf="editable" disabled value="Long answer text" />
+  <textarea matInput *ngIf="!editable" [(ngModel)]="props.text" placeholder="Long answer text"> </textarea>
+</mat-form-field>

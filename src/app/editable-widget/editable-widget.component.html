@@ -1,12 +1,16 @@
-<div *ngIf="widget">
-  <input type="text" [(ngModel)]="widget.props.question" />
+<div *ngIf="widget" class="widget">
+  <mat-form-field floatLabel="never" class="question">
+    <input matInput placeholder="Question" type="text" [(ngModel)]="widget.props.question" />
+  </mat-form-field>
 
-  <select [(ngModel)]="widget.type">
-    <option *ngFor="let val of Object.keys(WIDGET_TYPES)"
-            [value]="WIDGET_TYPES[val]">
-      {{ WIDGET_NAMES[val] }}
-    </option>
-  </select>
+  <mat-form-field floatLabel="never" class="type">
+    <mat-label>Type</mat-label>
+    <mat-select [(ngModel)]="widget.type">
+      <mat-option *ngFor="let opt of WIDGET_OPTIONS" [value]="opt.value">
+        {{ opt.label }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
   <ng-container [ngSwitch]="widget.type">
     <app-w-short-answer *ngSwitchCase="WIDGET_TYPES.short_answer"

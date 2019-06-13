@@ -30,12 +30,12 @@ export const WIDGET_TYPES = {
     time: 'time'
 };
 
-export const WIDGET_NAMES = {
-    short_answer: 'Short Answer',
-    paragraph: 'Paragraph',
-    multiple_choice: 'Multiple Choice',
-    checkboxes: 'Checkboxes',
-    linear: 'Linear Scale',
-    date: 'Date',
-    time: 'Time'
-};
+export const WIDGET_OPTIONS = [
+    {value: WIDGET_TYPES.short_answer, label: 'Short Answer'},
+    {value: WIDGET_TYPES.paragraph, label: 'Paragraph'},
+    {value: WIDGET_TYPES.multiple_choice, label: 'Multiple Choice'},
+    {value: WIDGET_TYPES.checkboxes, label: 'Checkboxes'},
+    {value: WIDGET_TYPES.linear, label: 'Paragraph'},
+    {value: WIDGET_TYPES.date, label: 'Date'},
+    {value: WIDGET_TYPES.time, label: 'Time'},
+];

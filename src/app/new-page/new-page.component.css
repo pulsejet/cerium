@@ -1,0 +1,43 @@
+button.add-widget {
+    float: right;
+}
+
+.widget:focus-within, .cdk-drag-preview {
+    border-left: 4px solid blueviolet;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+/* Animate items as they're being sorted. */
+.cdk-drop-list-dragging .cdk-drag {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Animate an item that has been dropped. */
+.cdk-drag-animating {
+    transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.drag-preview {
+    background-color: blueviolet;
+    color: white;
+    padding: 20px;
+    max-width: 500px;
+    word-wrap: normal;
+}
+
+.inner {
+    padding: 20px 0;
+}
+
+.widget {
+    padding: 10px 30px;
+    margin: 15px 0;
+    border-left: 4px solid transparent;
+    transition: border-left 0.5s ease;
+}
+
+.drag-handle {
+    margin: 0 auto;
+    text-align: center;
+    cursor: move;
+}

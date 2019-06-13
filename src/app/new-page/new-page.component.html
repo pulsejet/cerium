@@ -1,0 +1,24 @@
+<div class="inner">
+  <button (click)="addWidget()"
+        type="button" class="add-widget">
+  </button>
+  <br />
+
+  <div cdkDropList (cdkDropListDropped)="dropped($event)">
+    <div class="widget"
+         *ngFor="let widget of page.widgets"
+         cdkDragLockAxis="y" cdkDrag>
+
+      <div class="drag-handle" cdkDragHandle>
+        <img src="assets/move.svg" width=15>
+      </div>
+
+      <div *cdkDragPreview class="drag-preview">
+        {{ widget.props.question }}
+      </div>
+
+      <app-editable-widget [widget]="widget">
+      </app-editable-widget>
+    </div>
+  </div>
+</div>

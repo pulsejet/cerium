@@ -18,11 +18,4 @@ export class NewFormComponent implements OnInit {
       this.form.pages.push({ widgets: [] } as IPage);
     }
   }
-
-  addWidget() {
-    this.form.pages[0].widgets.push({
-      type: WIDGET_TYPES.paragraph
-    } as IWidget);
-  }
-
 }
