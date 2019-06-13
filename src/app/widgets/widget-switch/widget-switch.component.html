@@ -1,0 +1,13 @@
+<ng-container [ngSwitch]="widget.type">
+  <app-w-short-answer *ngSwitchCase="WIDGET_TYPES.short_answer"
+                      [editable]="editable" [props]="widget.props">
+  </app-w-short-answer>
+
+  <app-w-paragraph *ngSwitchCase="WIDGET_TYPES.paragraph"
+                      [editable]="editable" [props]="widget.props">
+  </app-w-paragraph>
+
+  <app-w-multiple-choice *ngSwitchCase="WIDGET_TYPES.multiple_choice"
+                      [editable]="editable" [props]="widget.props">
+  </app-w-multiple-choice>
+</ng-container>

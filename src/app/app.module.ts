@@ -14,6 +14,8 @@ import { PrimeComponentsModule } from './prime-components.module';
 import { NewPageComponent } from './new-page/new-page.component';
 import { FormComponent } from './form/form.component';
 import { WidgetComponent } from './widget/widget.component';
+import { WMultipleChoiceComponent } from './widgets/w-multiple-choice/w-multiple-choice.component';
+import { WidgetSwitchComponent } from './widgets/widget-switch/widget-switch.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { WidgetComponent } from './widget/widget.component';
     WParagraphComponent,
     NewPageComponent,
     FormComponent,
-    WidgetComponent
+    WidgetComponent,
+    WMultipleChoiceComponent,
+    WidgetSwitchComponent
   ],
   imports: [
     BrowserModule,

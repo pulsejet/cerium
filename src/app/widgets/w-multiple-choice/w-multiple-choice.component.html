@@ -1,0 +1,24 @@
+<div class="editable" cdkDropList *ngIf="editable" (cdkDropListDropped)="dropped($event)">
+    <div cdkDrag *ngFor="let opt of props.options; let i = index">
+        <mat-form-field class="r-form-field">
+            <input #option matInput [(ngModel)]="opt.value" />
+        </mat-form-field>
+
+        <div *cdkDragPreview class="drag-preview">
+            {{ opt.value }}
+        </div>
+
+        <div class="button mv" cdkDragHandle><img src="assets/move.svg" width=15></div>
+        <div class="button" (click)="remove(i)"><img src="assets/cross.svg" width=15></div>
+    </div>
+
+    <mat-form-field floatLabel="never" *ngIf="props.other" class="r-form-field">
+        <input matInput value="Other..." disabled />
+    </mat-form-field>
+
+    <mat-form-field floatLabel="never">
+        <input matInput (input)="newOption($event)" placeholder="Add option" />
+    </mat-form-field>
+
+    <button mat-button class="add-other" (click)="props.other = !props.other">TOGGLE "OTHER"</button>
+</div>

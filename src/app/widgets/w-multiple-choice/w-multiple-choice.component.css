@@ -1,0 +1,25 @@
+.editable {
+    display:inline-block;
+    width: 100%;
+}
+
+.r-form-field {
+    display: inline-block;
+    width: calc(100% - 60px);
+}
+
+.button {
+    display: inline-block;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.button.mv {
+    cursor: move;
+}
+
+.add-other {
+    font-weight: bold;
+    color: darkblue;
+    margin-left: 5px;
+}

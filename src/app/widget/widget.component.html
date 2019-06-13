@@ -1,13 +1,4 @@
 <div *ngIf="widget" class="widget">
   <div class="question">{{ widget.props.question }}</div>
-
-  <ng-container [ngSwitch]="widget.type">
-    <app-w-short-answer *ngSwitchCase="WIDGET_TYPES.short_answer"
-                        [props]="widget.props">
-    </app-w-short-answer>
-
-    <app-w-paragraph *ngSwitchCase="WIDGET_TYPES.paragraph"
-                     [props]="widget.props">
-    </app-w-paragraph>
-  </ng-container>
+  <app-widget-switch [widget]="widget"></app-widget-switch>
 </div>

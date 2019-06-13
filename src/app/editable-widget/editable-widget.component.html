@@ -14,13 +14,6 @@
     </mat-select>
   </mat-form-field>
 
-  <ng-container [ngSwitch]="widget.type">
-    <app-w-short-answer *ngSwitchCase="WIDGET_TYPES.short_answer"
-                        [editable]="true" [props]="widget.props">
-    </app-w-short-answer>
+  <app-widget-switch [widget]="widget" [editable]="true"></app-widget-switch>
 
-    <app-w-paragraph *ngSwitchCase="WIDGET_TYPES.paragraph"
-                        [editable]="true" [props]="widget.props">
-    </app-w-paragraph>
-  </ng-container>
 </div>

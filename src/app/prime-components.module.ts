@@ -4,6 +4,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
@@ -13,6 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatSelectModule,
     MatButtonModule,
     MatIconModule,
+    MatRadioModule,
+    MatCheckboxModule,
   ],
   exports : [
     DragDropModule,
@@ -20,6 +24,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatSelectModule,
     MatButtonModule,
     MatIconModule,
+    MatRadioModule,
+    MatCheckboxModule,
   ]
 })
 export class PrimeComponentsModule { }
