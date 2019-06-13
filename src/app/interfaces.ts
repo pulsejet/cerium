@@ -35,7 +35,7 @@ export const WIDGET_OPTIONS = [
     {value: WIDGET_TYPES.paragraph, label: 'Paragraph'},
     {value: WIDGET_TYPES.multiple_choice, label: 'Multiple Choice'},
     {value: WIDGET_TYPES.checkboxes, label: 'Checkboxes'},
-    {value: WIDGET_TYPES.linear, label: 'Paragraph'},
+    {value: WIDGET_TYPES.linear, label: 'Linear Scale'},
     {value: WIDGET_TYPES.date, label: 'Date'},
     {value: WIDGET_TYPES.time, label: 'Time'},
 ];

@@ -1,6 +1,8 @@
 <div *ngIf="widget" class="widget">
   <mat-form-field floatLabel="never" class="question">
-    <input matInput placeholder="Question" type="text" [(ngModel)]="widget.props.question" />
+    <textarea matInput matTextareaAutosize placeholder="Question"
+              [(ngModel)]="widget.props.question">
+    </textarea>
   </mat-form-field>
 
   <mat-form-field floatLabel="never" class="type">

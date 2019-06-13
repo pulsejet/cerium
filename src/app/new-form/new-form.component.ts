@@ -18,4 +18,8 @@ export class NewFormComponent implements OnInit {
       this.form.pages.push({ widgets: [] } as IPage);
     }
   }
+
+  save() {
+    console.log(this.form);
+  }
 }

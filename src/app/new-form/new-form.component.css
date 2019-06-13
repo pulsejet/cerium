@@ -1,3 +1,22 @@
+.main {
+    margin-top: 20px;
+}
+
+div.save {
+    text-align: right;
+    display: block;
+}
+
+.page-no {
+    background-color: blueviolet;
+    padding: 10px;
+    padding-left: 20px;
+    color: white;
+    font-weight: 300;
+    font-size: 1.3em;
+}
+
 .page {
+    margin: 20px 0;
     background-color: white;
 }

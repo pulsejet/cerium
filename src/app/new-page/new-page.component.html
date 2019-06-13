@@ -1,6 +1,16 @@
 <div class="inner">
+  <div class="header widget">
+    <mat-form-field floatLabel="never" class="title">
+      <input matInput placeholder="Section title" type="text" [(ngModel)]="page.title" />
+    </mat-form-field>
+    <mat-form-field floatLabel="never" class="description">
+      <textarea matInput placeholder="Section description" matTextareaAutosize [(ngModel)]="page.description"></textarea>
+    </mat-form-field>
+  </div>
+
   <button (click)="addWidget()"
-        type="button" class="add-widget">
+          mat-icon-button color="primary" class="add-widget">
+    +
   </button>
   <br />
 

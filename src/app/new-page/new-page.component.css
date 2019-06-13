@@ -4,7 +4,7 @@ button.add-widget {
 
 .widget:focus-within, .cdk-drag-preview {
     border-left: 4px solid blueviolet;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.3);
 }
 
 /* Animate items as they're being sorted. */
@@ -25,12 +25,25 @@ button.add-widget {
     word-wrap: normal;
 }
 
-.inner {
-    padding: 20px 0;
+.title {
+    font-size: 1.6em;
+}
+
+.description, .title {
+    width: 100%;
+    font-weight: 300;
+}
+
+.header {
+    width: 75%;
+    margin: 0 !important;
+    margin-left: calc(20px + 10px);
+    box-shadow: none !important;
 }
 
 .widget {
     padding: 10px 30px;
+    padding-bottom: 30px;
     margin: 15px 0;
     border-left: 4px solid transparent;
     transition: border-left 0.5s ease;
@@ -40,4 +53,10 @@ button.add-widget {
     margin: 0 auto;
     text-align: center;
     cursor: move;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.widget:hover .drag-handle {
+    opacity: 1;
 }
