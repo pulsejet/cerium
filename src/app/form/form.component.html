@@ -9,12 +9,14 @@
     </div>
 
     <button class="next" mat-raised-button color="primary"
-            [routerLink]="nextPage()" *ngIf="!canSectionSubmit()">
+            [routerLink]="nextPage()" *ngIf="!canSectionSubmit()"
+            [disabled]="!isValidated()">
       NEXT
     </button>
 
     <button (click)="submit()" class="save" mat-raised-button color="accent"
-            *ngIf="canSectionSubmit()">
+            *ngIf="canSectionSubmit()"
+            [disabled]="!isValidated()">
       SUBMIT
     </button>
   </div>

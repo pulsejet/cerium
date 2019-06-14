@@ -1,4 +1,10 @@
 <mat-form-field floatLabel="never" class="form-field">
-  <input matInput *ngIf="editable" disabled value="Short answer text" />
-  <input matInput *ngIf="!editable" type="text" [(ngModel)]="props.response" placeholder="Your answer" />
+  <ng-container *ngIf="editable">
+    <input matInput disabled [value]="(big ? 'Long' : 'Short') + 'answer text'" />
+  </ng-container>
+
+  <ng-container *ngIf="!editable">
+    <input *ngIf="!big" matInput type="text" [formControl]="response" placeholder="Your answer" />
+    <textarea *ngIf="big" matInput [formControl]="response" placeholder="Your answer" matTextareaAutosize></textarea>
+  </ng-container>
 </mat-form-field>

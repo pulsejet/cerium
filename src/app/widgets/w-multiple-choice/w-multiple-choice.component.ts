@@ -22,6 +22,10 @@ export class WMultipleChoiceComponent implements OnInit {
         value: 'Option 1'
       }];
     }
+
+    if (!this.editable && !this.props.validators.required) {
+      this.props.validated = true;
+    }
   }
 
   newOption(e: any) {
@@ -50,6 +54,14 @@ export class WMultipleChoiceComponent implements OnInit {
   otherChange(e: any) {
     this.props.other_val = e.target.value;
     this.props.response = this.props.other_val;
+  }
+
+  validate() {
+    if (!this.checkbox) {
+      this.props.validated = true;
+    } else {
+      this.props.validated = this.props.options.map(m => m.checked).any(m => m);
+    }
   }
 
 }

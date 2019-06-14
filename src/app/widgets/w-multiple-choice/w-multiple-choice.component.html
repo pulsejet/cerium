@@ -26,7 +26,8 @@
 <div *ngIf="!editable && !checkbox">
     <mat-radio-group
         class="radio-group"
-        [(ngModel)]="props.response">
+        [(ngModel)]="props.response"
+        (change)="validate()">
 
         <mat-radio-button class="radio-button" *ngFor="let opt of props.options" [value]="opt.value">
             {{ opt.value}}
@@ -40,11 +41,13 @@
 
 <div *ngIf="!editable && checkbox">
     <div class="radio-group">
-        <mat-checkbox class="radio-button" *ngFor="let opt of props.options" [(ngModel)]="opt.checked">
+        <mat-checkbox class="radio-button" *ngFor="let opt of props.options"
+                      [(ngModel)]="opt.checked" (change)="validate()">
             {{ opt.value}}
         </mat-checkbox>
 
-        <mat-checkbox class="radio-button" [(ngModel)]="props.other_checked" *ngIf="props.other">
+        <mat-checkbox class="radio-button" [(ngModel)]="props.other_checked"
+                      *ngIf="props.other" (change)="validate()">
             <input matInput [(ngModel)]="props.other_val"
                    placeholder="Your answer" class="check-other plain-input" />
         </mat-checkbox>
