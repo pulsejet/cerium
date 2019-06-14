@@ -57,10 +57,16 @@ export class WMultipleChoiceComponent implements OnInit {
   }
 
   validate() {
+    if (!this.props.validators.required) {
+      this.props.validated = true;
+      return;
+    }
+
+    // Different validation for each
     if (!this.checkbox) {
       this.props.validated = true;
     } else {
-      this.props.validated = this.props.options.map(m => m.checked).any(m => m);
+      this.props.validated = this.props.options.some(m => m.checked);
     }
   }
 

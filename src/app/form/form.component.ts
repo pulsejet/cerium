@@ -63,7 +63,7 @@ export class FormComponent implements OnInit {
   }
 
   isValidated(): boolean {
-    return this.page.widgets.map(w => w.props.validated).every(m => m);
+    return this.page.widgets.every(m => m.props.validated);
   }
 
 }
