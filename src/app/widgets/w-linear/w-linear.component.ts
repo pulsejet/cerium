@@ -28,7 +28,13 @@ export class WLinearComponent implements OnInit {
       for (let i: number = this.props.lower; i <= this.props.upper; i++) {
         this.options.push(i);
       }
+
+      this.props.validated = !this.props.validators.required;
     }
+  }
+
+  validate() {
+    this.props.validated = true;
   }
 
 }

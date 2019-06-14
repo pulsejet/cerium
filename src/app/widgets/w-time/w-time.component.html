@@ -1,4 +1,4 @@
 <mat-form-field floatLabel="never">
   <input matInput *ngIf="editable" disabled type="time" />
-  <input matInput *ngIf="!editable" type="text" [(ngModel)]="props.response" type="time" />
+  <input matInput *ngIf="!editable" type="text" [formControl]="response" type="time" />
 </mat-form-field>
