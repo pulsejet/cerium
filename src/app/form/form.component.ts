@@ -88,7 +88,7 @@ export class FormComponent implements OnInit {
       this.submission = r.id;
       this.form = null;
     }, (e) => {
-      alert(e);
+      alert(e.message);
       console.error(e);
       this.submitted = false;
     });

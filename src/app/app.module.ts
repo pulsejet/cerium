@@ -22,6 +22,7 @@ import { WDateComponent } from './widgets/w-date/w-date.component';
 import { WTimeComponent } from './widgets/w-time/w-time.component';
 import { LoginComponent } from './login/login.component';
 import { DataService } from './data.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { DataService } from './data.service';
     WLinearComponent,
     WDateComponent,
     WTimeComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

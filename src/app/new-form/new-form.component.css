@@ -30,6 +30,10 @@ div.save {
     margin: 10px;
 }
 
+.form-options {
+    padding: 30px;
+}
+
 @media (max-width: 900px) {
     .main {
         margin-top: 60px;

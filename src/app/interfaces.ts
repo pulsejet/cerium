@@ -2,6 +2,8 @@ export interface IForm {
     name: string;
     pages: IPage[];
     can_edit: boolean;
+    collect_email: boolean;
+    require_login: boolean;
 }
 
 export interface IPage {

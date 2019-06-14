@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IForm, IPage } from '../interfaces';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-new-form',
@@ -20,9 +21,12 @@ export class NewFormComponent implements OnInit {
     private route: ActivatedRoute,
     public http: HttpClient,
     public router: Router,
+    public dataService: DataService,
   ) { }
 
   ngOnInit() {
+    if (!this.dataService.ensureLogin()) { return; }
+
     this.id = this.route.snapshot.params.id;
     if (this.id) {
       this.http.get<IForm>(`/api/form/${this.id}`).subscribe(f => {

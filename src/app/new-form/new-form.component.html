@@ -1,4 +1,17 @@
 <div *ngIf="form && form.pages" class="main">
+  <div class="page mat-elevation-z3">
+    <div class="page-no">Form Options</div>
+    <div class="form-options">
+      <mat-slide-toggle [(ngModel)]="form.require_login">
+        Require Login
+      </mat-slide-toggle>
+      <br /> <br />
+      <mat-slide-toggle [(ngModel)]="form.collect_email">
+        Collect Email Addresses
+      </mat-slide-toggle>
+    </div>
+  </div>
+
   <div *ngFor="let page of form.pages; let i = index" class="page mat-elevation-z3">
       <div class="page-no">Section {{ i + 1 }} of {{ form.pages.length }}</div>
       <app-new-page [page]="page"></app-new-page>
