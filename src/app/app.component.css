@@ -16,3 +16,19 @@
     margin: auto;
     z-index: 100;
 }
+
+.username {
+    font-size: 0.85em;
+    color: white;
+    top: calc(10px + (40px - 2.2em) / 2); left: 63px;
+    position: fixed;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    top: 10px; left: 15px;
+    position: fixed;
+}

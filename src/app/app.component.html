@@ -1,4 +1,14 @@
-<div class="head-dark"></div>
-<div class="main">
-    <router-outlet></router-outlet>
+<div *ngIf="initialized">
+    <div class="head-dark"></div>
+
+    <img class="avatar" src="https://gymkhana.iitb.ac.in{{ dataService.getUser().profile_picture }}" />
+
+    <div *ngIf="dataService.isLoggedIn()" class="username">
+        {{ dataService.getUser().first_name }} {{ dataService.getUser().last_name }} <br/>
+        {{ dataService.getUser().roll_number }} <br />
+    </div>
+
+    <div class="main">
+        <router-outlet></router-outlet>
+    </div>
 </div>

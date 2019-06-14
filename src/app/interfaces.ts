@@ -21,6 +21,14 @@ export interface IFormResponse {
     responses: any;
 }
 
+export interface IUser {
+    id: number;
+    roll_number: string;
+    first_name: string;
+    last_name: string;
+    profile_picture: string;
+}
+
 export const WIDGET_TYPES = {
     short_answer: 'short_answer',
     paragraph: 'paragraph',

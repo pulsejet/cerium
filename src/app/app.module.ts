@@ -20,6 +20,8 @@ import { WidgetSwitchComponent } from './widgets/widget-switch/widget-switch.com
 import { WLinearComponent } from './widgets/w-linear/w-linear.component';
 import { WDateComponent } from './widgets/w-date/w-date.component';
 import { WTimeComponent } from './widgets/w-time/w-time.component';
+import { LoginComponent } from './login/login.component';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { WTimeComponent } from './widgets/w-time/w-time.component';
     WidgetSwitchComponent,
     WLinearComponent,
     WDateComponent,
-    WTimeComponent
+    WTimeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,9 @@ import { WTimeComponent } from './widgets/w-time/w-time.component';
     PrimeComponentsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    DataService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
