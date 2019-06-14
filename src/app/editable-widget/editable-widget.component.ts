@@ -22,6 +22,9 @@ export class EditableWidgetComponent implements OnInit {
     if (!this.widget.props) {
       this.widget.props = { question: 'Untitled Question' };
     }
+    if (!this.widget.props.validators) {
+      this.widget.props.validators = { required: false };
+    }
   }
 
 }

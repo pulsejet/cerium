@@ -9,6 +9,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [],
@@ -23,6 +24,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDividerModule,
+    MatSlideToggleModule,
   ],
   exports : [
     DragDropModule,
@@ -35,6 +37,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDividerModule,
+    MatSlideToggleModule,
   ],
 })
 export class PrimeComponentsModule { }

@@ -22,3 +22,7 @@
 .widget:focus-within .extra-actions {
     display: inline-block;
 }
+
+.required {
+    font-size: 0.9em;
+}
