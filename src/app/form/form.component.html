@@ -4,7 +4,7 @@
     <div class="description">{{ page.description }}</div>
 
     <div class="widget"
-         *ngFor="let widget of page.widgets">
+         *ngFor="let widget of page.widgets" @fadeIn>
       <app-widget [widget]="widget"></app-widget>
     </div>
 
