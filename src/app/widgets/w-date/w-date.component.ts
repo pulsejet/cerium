@@ -26,6 +26,11 @@ export class WDateComponent implements OnInit {
         this.response.setValidators(validators);
       }
 
+      // Get back value
+      if (this.props.response) {
+        this.response.setValue(this.props.response);
+      }
+
       // Initialize
       this.response.updateValueAndValidity();
       this.props.validated = this.response.valid;

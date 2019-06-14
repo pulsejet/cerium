@@ -29,7 +29,7 @@ export class WLinearComponent implements OnInit {
         this.options.push(i);
       }
 
-      this.props.validated = !this.props.validators.required;
+      this.props.validated = !this.props.validators.required || this.props.response;
     }
   }
 

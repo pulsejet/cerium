@@ -1,6 +1,6 @@
 <div *ngIf="widget" class="widget">
   <div class="question">{{ widget.props.question }}
-    <span *ngIf="widget.props.validators.required">*</span>
+    <span *ngIf="widget.props.validators.required" [class.red]="!widget.props.validated">*</span>
   </div>
   <app-widget-switch [widget]="widget"></app-widget-switch>
 </div>

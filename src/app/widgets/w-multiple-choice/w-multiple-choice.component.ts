@@ -24,7 +24,7 @@ export class WMultipleChoiceComponent implements OnInit {
     }
 
     if (!this.editable) {
-      if (!this.props.validators.required) {
+      if (!this.props.validators.required || this.props.response) {
         this.props.validated = true;
       }
       if (!this.props.response) {
