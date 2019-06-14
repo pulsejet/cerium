@@ -32,3 +32,9 @@
     top: 10px; left: 15px;
     position: fixed;
 }
+
+@media (max-width: 900px) {
+    .avatar, .username {
+        position: absolute;
+    }
+}

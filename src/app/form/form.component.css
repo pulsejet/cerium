@@ -21,3 +21,10 @@
     margin-left: 4px;
     white-space: pre-line;
 }
+
+@media (max-width: 900px) {
+    .main {
+        margin-top: 60px;
+    }
+}
+
