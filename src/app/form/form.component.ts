@@ -24,7 +24,7 @@ export class FormComponent implements OnInit {
   form: IForm;
   page: IPage;
   submitted = false;
-  submission = '5d034148a2bdb85148fc3feb';
+  submission = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -39,16 +39,30 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
     this.getRouterParams();
+
+    // Reset to first page
+    if (this.pagen !== 0) {
+      this.router.navigate(['/form/', this.id, 0]);
+
+      if (this.pagen === undefined || isNaN(this.pagen)) {
+        return;
+      } else {
+        this.pagen = 0;
+      }
+    }
+
+    // Get the form
     this.http.get(`/api/form/${this.id}`).subscribe((form: IForm) => {
       this.form = form;
       this.page = this.form.pages[this.pagen];
-    });
 
-    this.router.events.subscribe(val => {
-      if (val instanceof NavigationEnd) {
-        this.getRouterParams();
-        this.page = this.form.pages[this.pagen];
-      }
+      // Page change events
+      this.router.events.subscribe(val => {
+        if (val instanceof NavigationEnd) {
+          this.getRouterParams();
+          this.page = this.form.pages[this.pagen];
+        }
+      });
     });
   }
 

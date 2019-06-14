@@ -27,7 +27,7 @@ export class NewFormComponent implements OnInit {
   save() {
     this.submitted = true;
     this.http.post('/api/form', this.form).subscribe((result: any) => {
-      this.submission = `${window.location.origin}/form/${result.id}/0`;
+      this.submission = `${window.location.origin}/form/${result.id}`;
       this.form = null;
     }, (e) => {
       this.submitted = false;
