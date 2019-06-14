@@ -22,6 +22,10 @@ div.save {
     background-color: white;
 }
 
+.page.sub {
+    padding: 25px
+}
+
 .add-section {
     margin: 10px;
 }

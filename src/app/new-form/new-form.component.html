@@ -1,4 +1,4 @@
-<div *ngIf="form.pages" class="main">
+<div *ngIf="form && form.pages" class="main">
   <div *ngFor="let page of form.pages; let i = index" class="page mat-elevation-z3">
       <div class="page-no">Section {{ i + 1 }} of {{ form.pages.length }}</div>
       <app-new-page [page]="page"></app-new-page>
@@ -12,6 +12,15 @@
   </div>
 
   <div class="save">
-    <button (click)="save()" class="save" mat-raised-button color="accent"> SAVE </button>
+    <button (click)="save()" class="save" mat-raised-button color="accent" [disabled]="submitted"> SAVE </button>
+  </div>
+</div>
+
+<div *ngIf="!form && submitted" class="page sub mat-elevation-z3">
+  <div class="title"> Your form has been created </div> <br/>
+  <div class="description"> Thank you for using Cerium! <br/>
+    <span class="monospace">
+      <a target="_blank" href="{{submission}}">{{ submission }}</a>
+    </span>
   </div>
 </div>

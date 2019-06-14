@@ -10,6 +10,8 @@ import { HttpClient } from '@angular/common/http';
 export class NewFormComponent implements OnInit {
 
   form: IForm = {} as IForm;
+  submitted = false;
+  submission = '';
 
   constructor(
     public http: HttpClient,
@@ -23,8 +25,13 @@ export class NewFormComponent implements OnInit {
   }
 
   save() {
-    this.http.post('/api/form', this.form).subscribe(result => {
-      console.log(result);
+    this.submitted = true;
+    this.http.post('/api/form', this.form).subscribe((result: any) => {
+      this.submission = `${window.location.origin}/form/${result.id}/0`;
+      this.form = null;
+    }, (e) => {
+      this.submitted = false;
+      console.error(e);
     });
   }
 

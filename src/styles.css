@@ -51,3 +51,7 @@ body {
     width: 100%;
     font-weight: 300;
 }
+
+.monospace {
+    font-family: monospace;
+}
