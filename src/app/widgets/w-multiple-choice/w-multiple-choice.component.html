@@ -49,7 +49,8 @@
         <mat-checkbox class="radio-button" [(ngModel)]="props.other_checked"
                       *ngIf="props.other" (change)="validate()">
             <input matInput [(ngModel)]="props.other_val"
-                   placeholder="Your answer" class="check-other plain-input" />
+                   placeholder="Your answer" class="check-other plain-input"
+                   (input)="validate()" />
         </mat-checkbox>
     </div>
 </div>

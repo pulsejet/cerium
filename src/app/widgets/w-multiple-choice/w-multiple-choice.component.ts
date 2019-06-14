@@ -23,8 +23,13 @@ export class WMultipleChoiceComponent implements OnInit {
       }];
     }
 
-    if (!this.editable && !this.props.validators.required) {
-      this.props.validated = true;
+    if (!this.editable) {
+      if (!this.props.validators.required) {
+        this.props.validated = true;
+      }
+      if (!this.props.response) {
+        this.props.response = '';
+      }
     }
   }
 
@@ -66,7 +71,16 @@ export class WMultipleChoiceComponent implements OnInit {
     if (!this.checkbox) {
       this.props.validated = true;
     } else {
-      this.props.validated = this.props.options.some(m => m.checked);
+      this.props.validated = (this.props.other_checked && this.props.other_val);
+      this.props.validated = this.props.validated || this.props.options.some(m => m.checked);
+    }
+
+    // Construct response
+    if (this.checkbox && this.props.validated) {
+      this.props.response = this.props.options.filter(o => o.checked).map(o => o.value);
+      if (this.props.other_checked) {
+        this.props.response.push(this.props.other_val);
+      }
     }
   }
 
