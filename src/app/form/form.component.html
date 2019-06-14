@@ -1,5 +1,5 @@
 <div *ngIf="form && form.pages" class="main">
-  <div *ngFor="let page of form.pages" class="page mat-elevation-z3">
+  <div class="page mat-elevation-z3">
     <div class="title">{{ page.title }}</div>
     <div class="description">{{ page.description }}</div>
 
@@ -7,9 +7,15 @@
          *ngFor="let widget of page.widgets">
       <app-widget [widget]="widget"></app-widget>
     </div>
-  </div>
 
-  <div class="save">
-    <button (click)="submit()" class="save" mat-raised-button color="accent"> SUBMIT </button>
+    <button class="next" mat-raised-button color="primary"
+            [routerLink]="nextPage()" *ngIf="!canSectionSubmit()">
+      NEXT
+    </button>
+
+    <button (click)="submit()" class="save" mat-raised-button color="accent"
+            *ngIf="canSectionSubmit()">
+      SUBMIT
+    </button>
   </div>
 </div>
