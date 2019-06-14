@@ -23,6 +23,8 @@ export class FormComponent implements OnInit {
   pagen: number;
   form: IForm;
   page: IPage;
+  submitted = false;
+  submission = '5d034148a2bdb85148fc3feb';
 
   constructor(
     private route: ActivatedRoute,
@@ -66,7 +68,16 @@ export class FormComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.consructResponse(this.id, this.form));
+    const response = this.consructResponse(this.id, this.form);
+    this.submitted = true;
+    this.http.post(`/api/response/${this.id}`, response).subscribe((r: any) => {
+      this.submission = r.id;
+      this.form = null;
+    }, (e) => {
+      alert(e);
+      console.error(e);
+      this.submitted = false;
+    });
   }
 
   canSectionSubmit() {

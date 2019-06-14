@@ -16,8 +16,13 @@
 
     <button (click)="submit()" class="save" mat-raised-button color="accent"
             *ngIf="canSectionSubmit()"
-            [disabled]="!isValidated()">
+            [disabled]="!isValidated() || submitted">
       SUBMIT
     </button>
   </div>
+</div>
+
+<div *ngIf="!form && submitted" class="page mat-elevation-z3">
+  <div class="title"> Your response has been recorded </div>
+  <div class="description"> Thank you for your time! <br/> <span class="submission">{{ submission }}</span> </div>
 </div>
