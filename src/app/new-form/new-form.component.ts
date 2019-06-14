@@ -18,7 +18,7 @@ export class NewFormComponent implements OnInit {
   ngOnInit() {
     this.form.pages = [] as IPage[];
     if (this.form.pages.length === 0) {
-      this.form.pages.push({ widgets: [] } as IPage);
+      this.form.pages.push({} as IPage);
     }
   }
 
@@ -26,5 +26,15 @@ export class NewFormComponent implements OnInit {
     this.http.post('/api/form', this.form).subscribe(result => {
       console.log(result);
     });
+  }
+
+  addSection(index: number) {
+    this.form.pages.splice(index + 1, 0, {} as IPage);
+  }
+
+  removeSection(index: number) {
+    if (confirm('Remove section? This action is irreversible!')) {
+      this.form.pages.splice(index, 1);
+    }
   }
 }

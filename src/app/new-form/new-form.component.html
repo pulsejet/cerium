@@ -2,6 +2,13 @@
   <div *ngFor="let page of form.pages; let i = index" class="page mat-elevation-z3">
       <div class="page-no">Section {{ i + 1 }} of {{ form.pages.length }}</div>
       <app-new-page [page]="page"></app-new-page>
+      <button mat-button color="primary" class="add-section" (click)="addSection(i)">
+        New section
+      </button>
+      <button *ngIf="form.pages.length > 1"
+              mat-button color="warn" class="add-section" (click)="removeSection(i)">
+        Remove section
+      </button>
   </div>
 
   <div class="save">

@@ -8,16 +8,6 @@ div.save {
     display: block;
 }
 
-@media (max-width: 900px) {
-    div.save {
-        position: absolute;
-    }
-
-    .main {
-        margin-top: 60px;
-    }
-}
-
 .page-no {
     background-color: var(--primary-dark);
     padding: 10px;
@@ -30,4 +20,17 @@ div.save {
 .page {
     margin: 20px 0;
     background-color: white;
+}
+
+.add-section {
+    margin: 10px;
+}
+
+@media (max-width: 900px) {
+    .main {
+        margin-top: 60px;
+    }
+    div.save {
+        position: absolute;
+    }
 }
