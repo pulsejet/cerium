@@ -1,5 +1,6 @@
 button.add-widget {
     float: right;
+    margin-right: 20px;
 }
 
 .widget:focus-within, .cdk-drag-preview {
