@@ -8,3 +8,17 @@
     float: right;
     margin-bottom: 4px;
 }
+
+.divider {
+    margin-top: 20px;
+}
+
+.extra-actions {
+    display: none;
+    text-align: right;
+    width: 100%;
+}
+
+.widget:focus-within .extra-actions {
+    display: inline-block;
+}

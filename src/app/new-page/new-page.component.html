@@ -16,7 +16,7 @@
 
   <div cdkDropList (cdkDropListDropped)="dropped($event)">
     <div class="widget"
-         *ngFor="let widget of page.widgets" cdkDrag>
+         *ngFor="let widget of page.widgets; let i = index" cdkDrag>
 
       <div class="drag-handle" cdkDragHandle>
         <img src="assets/move.svg" width=15>
@@ -26,7 +26,9 @@
         {{ widget.props.question }}
       </div>
 
-      <app-editable-widget [widget]="widget">
+      <app-editable-widget [widget]="widget"
+          (delete)="page.widgets.splice(i, 1)"
+          (duplicate)="duplicate(i)">
       </app-editable-widget>
     </div>
   </div>

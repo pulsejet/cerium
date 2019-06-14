@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { IWidget, WIDGET_TYPES, WIDGET_OPTIONS } from '../interfaces';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-editable-widget',
@@ -9,6 +10,8 @@ import { IWidget, WIDGET_TYPES, WIDGET_OPTIONS } from '../interfaces';
 export class EditableWidgetComponent implements OnInit {
 
   @Input() widget: IWidget;
+  @Output() delete = new EventEmitter();
+  @Output() duplicate = new EventEmitter();
   WIDGET_TYPES = WIDGET_TYPES;
   WIDGET_OPTIONS = WIDGET_OPTIONS;
   Object = Object;

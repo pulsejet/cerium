@@ -16,4 +16,14 @@
 
   <app-widget-switch [widget]="widget" [editable]="true"></app-widget-switch>
 
+  <div class="extra-actions">
+    <div class="divider"></div>
+    <button color="primary" mat-icon-button (click)="delete.emit()">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button color="primary" mat-icon-button (click)="duplicate.emit()">
+      <mat-icon>file_copy</mat-icon>
+    </button>
+  </div>
+
 </div>

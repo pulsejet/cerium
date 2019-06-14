@@ -36,4 +36,8 @@ export class NewPageComponent implements OnInit {
     );
   }
 
+  duplicate(i: number) {
+    this.page.widgets.splice(i + 1, 0, JSON.parse(JSON.stringify(this.page.widgets[i])));
+  }
+
 }
