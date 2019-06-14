@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { IForm, IPage } from '../interfaces';
+import { IForm, IPage, IFormResponse, IWidget } from '../interfaces';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
@@ -50,8 +50,23 @@ export class FormComponent implements OnInit {
     });
   }
 
+  consructResponse(id: string, form: IForm): IFormResponse {
+    const r = {} as IFormResponse;
+    r.form_id = id;
+    r.responses = {};
+
+    const arrays = form.pages.map(p => p.widgets);
+    const widgets: IWidget[] = [].concat.apply([], arrays);
+
+    widgets.forEach(w => {
+      r.responses[w.uid] = w.props.response;
+    });
+
+    return r;
+  }
+
   submit() {
-    console.log(this.form);
+    console.log(this.consructResponse(this.id, this.form));
   }
 
   canSectionSubmit() {
