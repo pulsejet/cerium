@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IForm, IPage } from '../interfaces';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-form',
@@ -19,13 +19,19 @@ export class NewFormComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public http: HttpClient,
+    public router: Router,
   ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
     if (this.id) {
-      this.http.get(`/api/form/${this.id}`).subscribe(f => {
-        this.form = f as IForm;
+      this.http.get<IForm>(`/api/form/${this.id}`).subscribe(f => {
+        if (!f.can_edit) {
+          alert('Unauthorized');
+          this.router.navigate(['/']);
+          return;
+        }
+        this.form = f;
       });
     } else {
       this.form = {} as IForm;
@@ -47,6 +53,7 @@ export class NewFormComponent implements OnInit {
     }, (e) => {
       this.submitted = false;
       console.error(e);
+      alert(e.message);
     });
   }
 

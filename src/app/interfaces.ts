@@ -1,6 +1,7 @@
 export interface IForm {
     name: string;
     pages: IPage[];
+    can_edit: boolean;
 }
 
 export interface IPage {
