@@ -28,7 +28,7 @@ export class WMultipleChoiceComponent implements OnInit {
         this.props.validated = true;
       }
       if (!this.props.response) {
-        this.props.response = '';
+        this.props.response = this.checkbox ? [] : '';
       }
     }
   }
