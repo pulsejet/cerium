@@ -6,6 +6,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [],
@@ -17,6 +20,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatIconModule,
     MatRadioModule,
     MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   exports : [
     DragDropModule,
@@ -26,6 +31,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatIconModule,
     MatRadioModule,
     MatCheckboxModule,
-  ]
+    MatDatepickerModule,
+    MatNativeDateModule,
+  ],
 })
 export class PrimeComponentsModule { }

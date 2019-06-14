@@ -17,6 +17,7 @@ import { WidgetComponent } from './widget/widget.component';
 import { WMultipleChoiceComponent } from './widgets/w-multiple-choice/w-multiple-choice.component';
 import { WidgetSwitchComponent } from './widgets/widget-switch/widget-switch.component';
 import { WLinearComponent } from './widgets/w-linear/w-linear.component';
+import { WDateComponent } from './widgets/w-date/w-date.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { WLinearComponent } from './widgets/w-linear/w-linear.component';
     WidgetComponent,
     WMultipleChoiceComponent,
     WidgetSwitchComponent,
-    WLinearComponent
+    WLinearComponent,
+    WDateComponent
   ],
   imports: [
     BrowserModule,

@@ -18,4 +18,5 @@
 
 .title, .description {
     margin-left: 4px;
+    white-space: pre-line;
 }

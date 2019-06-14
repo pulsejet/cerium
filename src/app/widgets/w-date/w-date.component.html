@@ -1,0 +1,8 @@
+<mat-form-field floatLabel="never">
+  <input matInput [matDatepicker]="picker"
+         [disabled]="editable" placeholder="Choose a date"
+         [(ngModel)]="props.response" />
+
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>

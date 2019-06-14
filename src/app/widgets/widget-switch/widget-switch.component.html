@@ -18,4 +18,8 @@
   <app-w-linear *ngSwitchCase="WIDGET_TYPES.linear"
                       [editable]="editable" [props]="widget.props">
   </app-w-linear>
+
+  <app-w-date *ngSwitchCase="WIDGET_TYPES.date"
+                      [editable]="editable" [props]="widget.props">
+  </app-w-date>
 </ng-container>

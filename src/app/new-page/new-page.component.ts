@@ -15,7 +15,7 @@ export class NewPageComponent implements OnInit {
 
   ngOnInit() {
     this.page.widgets.push({
-      type: WIDGET_TYPES.linear
+      type: WIDGET_TYPES.date
     } as IWidget);
   }
 
