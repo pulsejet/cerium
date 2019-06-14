@@ -38,12 +38,12 @@
   <br />
 
   <div class="linear-box">
-    <div>{{ props.lower_label }}</div>
+    <div class="lbl">{{ props.lower_label }}</div>
     <div>
       <mat-radio-group class="radio-group" [(ngModel)]="props.response" (change)="validate()">
         <mat-radio-button class="radio-button" *ngFor="let opt of options" [value]="opt"></mat-radio-button>
       </mat-radio-group>
     </div>
-    <div class="right-align"> {{ props.upper_label }}</div>
+    <div class="right-align lbl"> {{ props.upper_label }}</div>
   </div>
 </div>

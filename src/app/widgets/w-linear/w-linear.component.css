@@ -30,3 +30,18 @@
 .right-align {
     text-align: right;
 }
+
+.linear-box .lbl {
+    margin-right: 15px;
+}
+
+.linear-box .lbl.right-align {
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+@media (max-width: 900px) {
+    .linear-box {
+        overflow-x: auto;
+    }
+}
