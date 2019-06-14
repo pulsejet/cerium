@@ -3,8 +3,19 @@
 }
 
 div.save {
-    text-align: right;
+    position: fixed;
+    top: 10px; right: 20px;
     display: block;
+}
+
+@media (max-width: 900px) {
+    div.save {
+        position: absolute;
+    }
+
+    .main {
+        margin-top: 60px;
+    }
 }
 
 .page-no {

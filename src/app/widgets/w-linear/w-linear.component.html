@@ -1,5 +1,5 @@
 <div class="editable" *ngIf="editable">
-  <div>
+  <div class="lu-div">
     <mat-form-field class="lu-val">
       <mat-select [(ngModel)]="props.lower">
         <mat-option *ngFor="let v of lowerValues" [value]="v">
@@ -17,14 +17,16 @@
     </mat-form-field>
   </div>
 
-  <div>
+  <br />
+  <div class="lu-div">
     <div class="label"> {{ props.lower }} </div>
     <mat-form-field floatLabel="never">
       <input matInput [(ngModel)]="props.lower_label" placeholder="Label" />
     </mat-form-field>
   </div>
 
-  <div>
+  <br />
+  <div class="lu-div">
     <div class="label"> {{ props.upper }} </div>
     <mat-form-field floatLabel="never">
       <input matInput [(ngModel)]="props.upper_label" placeholder="Label" />

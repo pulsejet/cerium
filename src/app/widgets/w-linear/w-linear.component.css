@@ -1,3 +1,7 @@
+.lu-div {
+    display: inline-block;
+}
+
 .lu-val {
     width: 40px;
     margin-right: 20px;

@@ -1,5 +1,5 @@
 <div *ngIf="form.pages" class="main">
-  <div *ngFor="let page of form.pages; let i = index" class="page z-depth-1">
+  <div *ngFor="let page of form.pages; let i = index" class="page mat-elevation-z3">
       <div class="page-no">Section {{ i + 1 }} of {{ form.pages.length }}</div>
       <app-new-page [page]="page"></app-new-page>
   </div>

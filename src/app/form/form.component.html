@@ -1,8 +1,11 @@
 <div *ngIf="form && form.pages" class="main">
-  <div *ngFor="let page of form.pages" class="page z-depth-1">
-      <div class="widget"
-           *ngFor="let widget of page.widgets">
-        <app-widget [widget]="widget"></app-widget>
+  <div *ngFor="let page of form.pages" class="page mat-elevation-z3">
+    <div class="title">{{ page.title }}</div>
+    <div class="description">{{ page.description }}</div>
+
+    <div class="widget"
+         *ngFor="let widget of page.widgets">
+      <app-widget [widget]="widget"></app-widget>
     </div>
   </div>
 
