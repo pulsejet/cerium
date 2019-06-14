@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IForm, IPage } from '../interfaces';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-new-form',
@@ -9,25 +10,39 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NewFormComponent implements OnInit {
 
-  form: IForm = {} as IForm;
+  form: IForm;
   submitted = false;
   submission = '';
+  id: string;
+  origin = window.location.origin;
 
   constructor(
+    private route: ActivatedRoute,
     public http: HttpClient,
   ) { }
 
   ngOnInit() {
-    this.form.pages = [] as IPage[];
-    if (this.form.pages.length === 0) {
-      this.form.pages.push({} as IPage);
+    this.id = this.route.snapshot.params.id;
+    if (this.id) {
+      this.http.get(`/api/form/${this.id}`).subscribe(f => {
+        this.form = f as IForm;
+      });
+    } else {
+      this.form = {} as IForm;
+      this.form.pages = [] as IPage[];
+      if (this.form.pages.length === 0) {
+        this.form.pages.push({} as IPage);
+      }
     }
   }
 
   save() {
     this.submitted = true;
-    this.http.post('/api/form', this.form).subscribe((result: any) => {
-      this.submission = `${window.location.origin}/form/${result.id}`;
+    const observable = this.id ? this.http.put(`/api/form/${this.id}`, this.form)
+                               : this.http.post('/api/form', this.form);
+
+    observable.subscribe((result: any) => {
+      this.submission = result.id;
       this.form = null;
     }, (e) => {
       this.submitted = false;
