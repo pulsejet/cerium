@@ -27,6 +27,10 @@
   <div class="save">
     <button (click)="save()" class="save" mat-raised-button color="accent" [disabled]="submitted"> SAVE </button>
   </div>
+
+  <button *ngIf="id" mat-fab class="rl-fab" [routerLink]="['/response', id]">
+    <mat-icon>view_list</mat-icon>
+  </button>
 </div>
 
 <div *ngIf="!form && submitted" class="page sub mat-elevation-z3">
