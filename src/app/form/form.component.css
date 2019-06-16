@@ -1,3 +1,10 @@
+.main {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    z-index: 100;
+}
+
 .page {
     margin: 20px 0;
     background-color: white;

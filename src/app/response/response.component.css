@@ -1,0 +1,6 @@
+.htable {
+    margin-top: 60px;
+    width: 100vw;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+}

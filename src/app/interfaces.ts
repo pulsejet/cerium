@@ -22,6 +22,7 @@ export interface IWidget {
 export interface IFormResponse {
     form_id: string;
     responses: any;
+    timestamp: Date;
 }
 
 export interface IUser {

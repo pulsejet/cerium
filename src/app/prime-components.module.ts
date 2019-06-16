@@ -8,8 +8,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { HotTableModule } from '@handsontable/angular';
 
 @NgModule({
   declarations: [],
@@ -25,6 +26,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatNativeDateModule,
     MatDividerModule,
     MatSlideToggleModule,
+    HotTableModule,
   ],
   exports : [
     DragDropModule,
@@ -38,6 +40,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatNativeDateModule,
     MatDividerModule,
     MatSlideToggleModule,
+    HotTableModule,
   ],
 })
 export class PrimeComponentsModule { }

@@ -1,3 +1,14 @@
-<p>
-  response works!
-</p>
+<div class="htable">
+  <hot-table
+    *ngIf="dataset"
+    [colHeaders]="true"
+    [rowHeaders]="true"
+    [data]="dataset"
+    stretchH="all"
+    [readOnly]="true">
+  </hot-table>
+
+  <button mat-fab class="rl-fab" (click)="download()">
+    <mat-icon>cloud_download</mat-icon>
+  </button>
+</div>

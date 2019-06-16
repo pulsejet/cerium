@@ -33,14 +33,16 @@
   </button>
 </div>
 
-<div *ngIf="!form && submitted" class="page sub mat-elevation-z3">
-  <div class="title"> Your form has been created </div> <br/>
-  <div class="description"> Thank you for using Cerium! <br/><br/>
-    Form:
-    <a target="_blank" href="{{origin}}/form/{{submission}}">{{origin}}/form/{{submission}}</a>
+<div class="main" *ngIf="!form && submitted">
+  <div class="page sub mat-elevation-z3">
+    <div class="title"> Your form has been created </div> <br/>
+    <div class="description"> Thank you for using Cerium! <br/><br/>
+      Form:
+      <a target="_blank" href="{{origin}}/form/{{submission}}">{{origin}}/form/{{submission}}</a>
 
-    <br/><br/>
-    Responses:
-    <a href="{{origin}}/edit/{{submission}}">{{origin}}/edit/{{submission}}</a>
+      <br/><br/>
+      Responses:
+      <a href="{{origin}}/edit/{{submission}}">{{origin}}/edit/{{submission}}</a>
+    </div>
   </div>
 </div>

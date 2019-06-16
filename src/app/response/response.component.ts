@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-response',
@@ -7,9 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResponseComponent implements OnInit {
 
-  constructor() { }
+  id: string;
+  dataset: any[];
+
+  constructor(
+    public http: HttpClient,
+    public route: ActivatedRoute,
+  ) { }
 
   ngOnInit() {
+    this.id = this.route.snapshot.params.id;
+    this.http.post<[]>(`/api/responses/${this.id}`, { type: 'array' }).subscribe(r => {
+      this.dataset = r;
+    });
+  }
+
+  download() {
+    // Add header
+    let csvContent = 'data:text/csv;charset=utf-8,';
+
+    // Use some JSON magic :D
+    csvContent += this.dataset.map(d =>  JSON.stringify(d)).join('\n')
+                            .replace(/(^\[)|(\]$)/mg, '');
+
+    // Download
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', `responses_${this.id}.csv`);
+    document.body.appendChild(link);
+    link.click();
   }
 
 }

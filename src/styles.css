@@ -1,3 +1,5 @@
+@import '~handsontable/dist/handsontable.full.css';
+
 html, body {
     --primary-color: rgb(240, 235, 248);
     --primary-dark: rgb(103, 58, 183);
