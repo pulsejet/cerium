@@ -22,6 +22,12 @@
     white-space: pre-line;
 }
 
+.edit-fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
 @media (max-width: 900px) {
     .main {
         margin-top: 60px;

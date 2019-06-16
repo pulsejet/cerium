@@ -20,6 +20,10 @@
       SUBMIT
     </button>
   </div>
+
+  <button *ngIf="form.can_edit" mat-fab class="edit-fab" [routerLink]="['/edit', id]">
+    <mat-icon>edit</mat-icon>
+  </button>
 </div>
 
 <div *ngIf="!form && submitted" class="page mat-elevation-z3">
