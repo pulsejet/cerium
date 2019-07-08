@@ -8,6 +8,17 @@
       <app-widget [widget]="widget"></app-widget>
     </div>
 
+    <div *ngIf="!form.collect_email">
+      Your responses will be anonymous<br/><br/>
+    </div>
+    <div *ngIf="form.collect_email">
+      Your email address will be shared with the creator of this form<br/><br/>
+    </div>
+
+    <div *ngIf="form.single_response">
+      You may submit only one response<br/><br/>
+    </div>
+
     <button class="next" mat-raised-button color="primary"
             [routerLink]="nextPage()" *ngIf="!canSectionSubmit()"
             [disabled]="!isValidated()">
