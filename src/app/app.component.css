@@ -26,6 +26,10 @@
     position: fixed;
 }
 
+.profile {
+    cursor: pointer;
+}
+
 @media (max-width: 900px) {
     .avatar, .username {
         position: absolute;

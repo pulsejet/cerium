@@ -32,4 +32,12 @@ export class AppComponent implements OnInit {
       this.initialized = true;
     });
   }
+
+  logout() {
+    if (confirm("Do you want to log out?")) {
+      this.http.get('/api/logout').subscribe(u => {
+        this.dataService.setUser(null);
+      })
+    }
+  }
 }
