@@ -45,7 +45,7 @@ export class FormComponent implements OnInit {
 
     // Reset to first page
     if (this.pagen !== 0) {
-      this.router.navigate(['/form/', this.id, 0]);
+      this.router.navigate(['/m/', this.id, 0]);
 
       if (this.pagen === undefined || isNaN(this.pagen)) {
         return;
@@ -106,7 +106,7 @@ export class FormComponent implements OnInit {
   }
 
   nextPage() {
-    return ['/form', this.id, Number(this.pagen) + 1];
+    return ['/m', this.id, Number(this.pagen) + 1];
   }
 
   isValidated(): boolean {
