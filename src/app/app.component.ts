@@ -28,8 +28,10 @@ export class AppComponent implements OnInit {
     this.http.get<IUser>('/api/login').subscribe(u => {
       this.dataService.setUser(u);
       this.initialized = true;
-    }, () => {
-      this.initialized = true;
+    }, err => {
+      if (err.status === 401) {
+        this.initialized = true;
+      }
     });
   }
 
