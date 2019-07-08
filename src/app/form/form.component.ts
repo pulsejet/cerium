@@ -25,6 +25,7 @@ export class FormComponent implements OnInit {
   page: IPage;
   submitted = false;
   submission = '';
+  getError = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -63,6 +64,10 @@ export class FormComponent implements OnInit {
           this.page = this.form.pages[this.pagen];
         }
       });
+    }, err => {
+      this.getError = {}
+      this.getError.message = err.error.message;
+      this.getError.status = err.status;
     });
   }
 

@@ -32,3 +32,10 @@
     <div class="description"> Thank you for your time! <br/> <span class="monospace">{{ submission }}</span> </div>
   </div>
 </div>
+
+<div class="main" *ngIf="getError">
+  <div class="page mat-elevation-z3">
+    <div class="title"> There was an error </div>
+    <div class="description"> {{ getError.status }} - {{ getError.message }} </div>
+  </div>
+</div>

@@ -9,6 +9,10 @@
       <mat-slide-toggle [(ngModel)]="form.collect_email">
         Collect Email Addresses
       </mat-slide-toggle>
+      <br /> <br />
+      <mat-slide-toggle [disabled]="!form.require_login" [(ngModel)]="form.single_response">
+        One response per person
+      </mat-slide-toggle>
     </div>
   </div>
 
