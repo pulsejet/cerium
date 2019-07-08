@@ -37,5 +37,10 @@
   <div class="page mat-elevation-z3">
     <div class="title"> There was an error </div>
     <div class="description"> {{ getError.status }} - {{ getError.message }} </div>
+
+    <ng-container *ngIf="!dataService.isLoggedIn()">
+      <br/>
+      <button mat-raised-button color="accent" (click)="dataService.gotoSSO()">Login</button>
+    </ng-container>
   </div>
 </div>

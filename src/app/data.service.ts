@@ -31,6 +31,7 @@ export class DataService {
   }
 
   public gotoSSO() {
+    localStorage.setItem('login_redir', window.location.pathname)
     window.location.href = this.getSSO();
   }
 

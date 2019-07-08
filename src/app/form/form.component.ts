@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { IForm, IPage, IFormResponse, IWidget } from '../interfaces';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-form',
@@ -31,6 +32,7 @@ export class FormComponent implements OnInit {
     private route: ActivatedRoute,
     public http: HttpClient,
     public router: Router,
+    public dataService: DataService,
   ) { }
 
   getRouterParams() {
