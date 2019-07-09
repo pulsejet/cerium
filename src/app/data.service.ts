@@ -26,7 +26,8 @@ export class DataService {
     const url = 'https://gymkhana.iitb.ac.in/sso/oauth/authorize/';
     const clientid = '4Id5WpIQqpGYGflJJqGj9hPgGImTyQGxQuNU8Llh';
     const scope = 'basic profile picture program ldap';
-    const redir = 'http://localhost:4200/login';
+    const baseHref = document.getElementsByTagName('base')[0].href || '';
+    const redir = `${baseHref}login`;
     return `${url}?client_id=${clientid}&response_type=code&scope=${scope}&redirect_uri=${redir}`;
   }
 
