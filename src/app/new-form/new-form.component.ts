@@ -16,6 +16,7 @@ export class NewFormComponent implements OnInit {
   submission = '';
   id: string;
   origin = window.location.origin;
+  token: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -53,6 +54,7 @@ export class NewFormComponent implements OnInit {
 
     observable.subscribe((result: any) => {
       this.submission = result.id;
+      this.token = result.token;
       this.form = null;
     }, (e) => {
       this.submitted = false;
