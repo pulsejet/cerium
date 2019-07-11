@@ -16,7 +16,7 @@ export class NewFormComponent implements OnInit {
   submission = '';
   id: string;
   origin = window.location.origin;
-  token: string;
+  token: string = '';
 
   constructor(
     private route: ActivatedRoute,
