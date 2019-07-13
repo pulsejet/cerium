@@ -13,6 +13,7 @@ interface Forms {
 })
 export class HomeComponent implements OnInit {
   forms: Forms;
+  ids: string[];
 
   constructor(
     public router: Router,
@@ -21,10 +22,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     const Observable = this.http.get<Forms>(`/api/forms`).subscribe(f => {
-      if (f.ids.length === 0) {
+      if (!f.ids) {
         this.router.navigate(['/new']);
       } else {
-        this.forms = f;
+        console.warn("inside else");
+        console.log(f.ids);
       }
     })
   }
