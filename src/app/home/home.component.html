@@ -4,15 +4,22 @@
     <div class="description"> These are the forms you have created <br/><br/>
     </div>
   </div>
-  <div *ngFor="let item of forms">
-    <div class="page sub mat-elevation-z3">
-      <div class="title"> {{item.Name}} </div> <br/>
-      <a mat-raised-button color="primary" href="{{origin}}/edit/{{item.ID}}" >Edit</a>    
-      <a mat-raised-button color="primary" href="{{origin}}/m/{{item.ID}}" style="margin-left: 20px">Form Link</a>
-      <a mat-raised-button color="primary" href="{{origin}}/response/{{item.ID}}-{{item.Token}}" 
-        style="margin-left: 20px">Responses</a> 
-    </div>
-  </div>
+
+  <mat-accordion>
+
+      <mat-expansion-panel *ngFor="let item of forms">
+        <mat-expansion-panel-header>
+          {{item.Name}}
+        </mat-expansion-panel-header>
+    
+        <a mat-raised-button color="primary" href="{{origin}}/edit/{{item.ID}}" >Edit</a>    
+        <a mat-raised-button color="primary" href="{{origin}}/m/{{item.ID}}" style="margin-left: 20px">Form Link</a>
+        <a mat-raised-button color="primary" href="{{origin}}/response/{{item.ID}}-{{item.Token}}" 
+          style="margin-left: 20px">Responses</a>
+    
+      </mat-expansion-panel>
+    
+    </mat-accordion>
 </div>
 
 <div *ngIf="!forms" class="main">

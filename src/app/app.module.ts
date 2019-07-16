@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -52,6 +53,7 @@ import { ResponseComponent } from './response/response.component';
     AppRoutingModule,
     PrimeComponentsModule,
     ReactiveFormsModule,
+    MatExpansionModule
   ],
   providers: [
     DataService,
