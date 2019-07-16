@@ -36,4 +36,17 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  removeSection(id: number, name: string) {
+    if (confirm('Delete form ' + name + '? This action is irreversible! \nAll responses will also be deleted.')) {
+      const observable = this.http.delete(`/api/form/${id}`);
+
+      observable.subscribe((result: any) => {
+        alert('Form ' + name + ' has been deleted!')
+        window.location.reload();
+      }, (e) => {
+        console.error(e);
+        alert(e.message);
+      });
+    }
+  }
 }
