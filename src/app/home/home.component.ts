@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 interface Forms {
-  ids: string[]
+  ID: string
+  Name: string
+  Token: string
 }
 
 @Component({
@@ -12,21 +15,23 @@ interface Forms {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  forms: Forms;
-  ids: string[];
+  forms: Forms[];
+  origin = window.location.origin;
 
   constructor(
     public router: Router,
     public http: HttpClient,
+    public dataService: DataService,
   ) { }
 
   ngOnInit() {
-    const Observable = this.http.get<Forms>(`/api/forms`).subscribe(f => {
-      if (!f.ids) {
+    if (!this.dataService.ensureLogin()) { return; }
+
+    const Observable = this.http.get<Forms[]>(`/api/forms`).subscribe(f => {
+      if (!f) {
         this.router.navigate(['/new']);
       } else {
-        console.warn("inside else");
-        console.log(f.ids);
+        this.forms = f;
       }
     })
   }

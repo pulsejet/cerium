@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl(redir);
         localStorage.removeItem('login_redir')
       } else {
-        this.router.navigate(['/new']);
+        this.router.navigate(['/home']);
       }
     }, (e) => {
       alert(e.message);
