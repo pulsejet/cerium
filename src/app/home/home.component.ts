@@ -17,6 +17,7 @@ interface Forms {
 export class HomeComponent implements OnInit {
   forms: Forms[];
   origin = window.location.origin;
+  getError = null;
 
   constructor(
     public router: Router,
@@ -33,6 +34,10 @@ export class HomeComponent implements OnInit {
       } else {
         this.forms = f;
       }
+    }, (err) => {
+      this.getError = {}
+      this.getError.message = err.error.message;
+      this.getError.status = err.status;
     })
   }
 
