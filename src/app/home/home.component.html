@@ -1,0 +1,34 @@
+<div *ngIf="forms" class="main">
+  <div class="page sub mat-elevation-z3">
+    <div class="title"> All Forms </div> <br/>
+    <div class="description"> These are the forms you have created 
+    <a mat-raised-button value="Click Me" style="float: right;" href="{{origin}}/new"> New </a>
+    <br/><br/>
+    </div>
+  </div>
+
+  <mat-accordion>
+
+      <mat-expansion-panel *ngFor="let item of forms">
+        <mat-expansion-panel-header>
+          {{item.Name}}
+        </mat-expansion-panel-header>
+    
+        <a mat-raised-button color="primary" href="{{origin}}/edit/{{item.ID}}" >Edit</a>    
+        <a mat-raised-button color="primary" href="{{origin}}/m/{{item.ID}}" style="margin-left: 20px">Form Link</a>
+        <a mat-raised-button color="primary" href="{{origin}}/response/{{item.ID}}-{{item.Token}}" 
+          style="margin-left: 20px">Responses</a>
+        <a mat-raised-button color="warn" (click)="removeSection(item.ID, item.Name)" style="float: right">Delete</a>
+
+      </mat-expansion-panel>
+    
+    </mat-accordion>
+</div>
+
+<div *ngIf="!forms" class="main">
+  <div class="page sub mat-elevation-z3">
+    <div class="title"> Login to Continue </div> <br/>
+    <div class="description"> Login to view your forms<br/><br/>
+    </div>
+  </div>
+</div>
