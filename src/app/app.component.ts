@@ -11,6 +11,7 @@ import { IUser } from './interfaces';
 export class AppComponent implements OnInit {
   title = 'cerium';
   initialized = false;
+  getError = null;
 
   constructor(
     public dataService: DataService,
@@ -31,6 +32,10 @@ export class AppComponent implements OnInit {
     }, err => {
       if (err.status === 401) {
         this.initialized = true;
+      } else {
+        this.getError = {}
+        this.getError.message = err.error.message;
+        this.getError.status = err.status;
       }
     });
   }

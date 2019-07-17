@@ -14,3 +14,10 @@
         <router-outlet></router-outlet>
     </div>
 </div>
+
+<div class="main" *ngIf="getError">
+  <div class="m-error mat-elevation-z3">
+    <div class="title"> Something went really wrong :( </div>
+    <div class="description"> {{ getError.status }} - {{ getError.message }} </div>
+  </div>
+</div>

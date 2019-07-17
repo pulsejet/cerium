@@ -30,6 +30,14 @@
     cursor: pointer;
 }
 
+.m-error {
+    background-color: white;
+    width: 100%;
+    max-width: 700px;
+    padding: 20px;
+    margin: 20px auto;
+}
+
 @media (max-width: 900px) {
     .avatar, .username {
         position: absolute;
