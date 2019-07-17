@@ -20,6 +20,7 @@ div.save {
 .page {
     margin: 20px 0;
     background-color: white;
+    padding: 20px;
 }
 
 .page.sub {
