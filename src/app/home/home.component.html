@@ -2,7 +2,7 @@
   <div class="page sub mat-elevation-z3">
     <div class="title"> All Cerium Forms </div> <br/>
     <div class="description"> These are the forms you have created
-    <a mat-raised-button color="accent" class="new-button" href="{{origin}}/new"> New </a>
+    <button mat-raised-button color="accent" class="new-button" [routerLink]="['/new']"> New </button>
     <br/><br/>
     </div>
   </div>
@@ -14,13 +14,13 @@
           {{item.Name}}
         </mat-expansion-panel-header>
 
-        <a mat-raised-button color="primary" href="{{origin}}/edit/{{item.ID}}" >Edit</a>
-        <a mat-raised-button color="primary" href="{{origin}}/m/{{item.ID}}" class="link-button">Form Link</a>
-        <a mat-raised-button color="primary" href="{{origin}}/response/{{item.ID}}-{{item.Token}}"
+        <button mat-raised-button color="primary" [routerLink]="['/edit', item.ID]" >Edit</button>
+        <button mat-raised-button color="primary" [routerLink]="['/m', item.ID, '0']" class="link-button">Form Link</button>
+        <button mat-raised-button color="primary" [routerLink]="['/response', item.ID + '-' + item.Token]"
            class="link-button">
           Responses
-        </a>
-        <a mat-raised-button color="warn" (click)="removeSection(item.ID, item.Name)" style="float: right">Delete</a>
+        </button>
+        <button mat-raised-button color="warn" (click)="removeSection(item.ID, item.Name)" style="float: right">Delete</button>
 
       </mat-expansion-panel>
 

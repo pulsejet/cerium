@@ -42,20 +42,20 @@
     <div class="title"> Your form has been created </div> <br/>
     <div class="description"> Thank you for using Cerium! <br/><br/>
       Form:
-      <a target="_blank" href="{{origin}}/m/{{submission}}">{{origin}}/m/{{submission}}</a>
+      <a target="_blank" href="{{ getSubmissionUrl() }}">{{ getSubmissionUrl() }}</a>
 
       <br/><br/>
       Edit:
-      <a href="{{origin}}/edit/{{submission}}">{{origin}}/edit/{{submission}}</a>
+      <a href="{{ getEditUrl() }}">{{ getEditUrl() }}</a>
 
       <br/><br/>
       Responses:
-      <a href="{{origin}}/response/{{submission}}-{{token}}">{{origin}}/response/{{submission}}-{{token}}</a>
+      <a href="{{ getResponsesUrl() }}">{{ getResponsesUrl() }}</a>
 
       <br/><br/>
 
       You can find these links in Home page<br/><br/>
-      <a mat-raised-button color="primary" href="{{origin}}/home" >Return Home</a>
+      <a mat-raised-button color="primary" [routerLink]="['/home']" >Return Home</a>
     </div>
   </div>
 </div>

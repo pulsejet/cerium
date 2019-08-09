@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IForm, IPage } from '../interfaces';
+import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
@@ -23,6 +24,7 @@ export class NewFormComponent implements OnInit {
     public http: HttpClient,
     public router: Router,
     public dataService: DataService,
+    public location: Location,
   ) { }
 
   ngOnInit() {
@@ -71,5 +73,20 @@ export class NewFormComponent implements OnInit {
     if (confirm('Remove section? This action is irreversible!')) {
       this.form.pages.splice(index, 1);
     }
+  }
+
+  getSubmissionUrl(): string {
+    return window.location.origin + this.location.prepareExternalUrl(
+      `/m${this.submission}`);
+  }
+
+  getEditUrl(): string {
+    return window.location.origin + this.location.prepareExternalUrl(
+      `/edit/${this.submission}`);
+  }
+
+  getResponsesUrl(): string {
+    return window.location.origin + this.location.prepareExternalUrl(
+      `/response/${this.submission}-${this.token}`);
   }
 }
