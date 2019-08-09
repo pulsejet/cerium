@@ -40,7 +40,7 @@ export class ResponseComponent implements OnInit {
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
     link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `responses_${this.id}.csv`);
+    link.setAttribute('download', `responses_${this.id.split('-')[0]}.csv`);
     document.body.appendChild(link);
     link.click();
   }
