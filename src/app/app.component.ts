@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     }
 
     // Get profile
-    this.http.get<IUser>('/api/login').subscribe(u => {
+    this.http.get<IUser>('api/login').subscribe(u => {
       this.dataService.setUser(u);
       this.initialized = true;
     }, () => {

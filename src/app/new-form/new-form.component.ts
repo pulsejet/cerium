@@ -29,7 +29,7 @@ export class NewFormComponent implements OnInit {
 
     this.id = this.route.snapshot.params.id;
     if (this.id) {
-      this.http.get<IForm>(`/api/form/${this.id}`).subscribe(f => {
+      this.http.get<IForm>(`api/form/${this.id}`).subscribe(f => {
         if (!f.can_edit) {
           alert('Unauthorized');
           this.router.navigate(['/']);
@@ -48,8 +48,8 @@ export class NewFormComponent implements OnInit {
 
   save() {
     this.submitted = true;
-    const observable = this.id ? this.http.put(`/api/form/${this.id}`, this.form)
-                               : this.http.post('/api/form', this.form);
+    const observable = this.id ? this.http.put(`api/form/${this.id}`, this.form)
+                               : this.http.post('api/form', this.form);
 
     observable.subscribe((result: any) => {
       this.submission = result.id;

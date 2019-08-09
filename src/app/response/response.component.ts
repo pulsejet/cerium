@@ -19,7 +19,7 @@ export class ResponseComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
-    this.http.post<[]>(`/api/responses/${this.id}`, { type: 'array' }).subscribe(r => {
+    this.http.post<[]>(`api/responses/${this.id}`, { type: 'array' }).subscribe(r => {
       this.dataset = r;
     });
   }

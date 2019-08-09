@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   golang() {
-    this.http.post<IUser>('/api/login', {
+    this.http.post<IUser>('api/login', {
       code: this.code,
       redirect_uri: window.location.href.split('?')[0]
     }).subscribe(r => {

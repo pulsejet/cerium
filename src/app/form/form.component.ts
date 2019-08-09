@@ -52,7 +52,7 @@ export class FormComponent implements OnInit {
     }
 
     // Get the form
-    this.http.get(`/api/form/${this.id}`).subscribe((form: IForm) => {
+    this.http.get(`api/form/${this.id}`).subscribe((form: IForm) => {
       this.form = form;
       this.page = this.form.pages[this.pagen];
 
@@ -84,7 +84,7 @@ export class FormComponent implements OnInit {
   submit() {
     const response = this.consructResponse(this.id, this.form);
     this.submitted = true;
-    this.http.post(`/api/response/${this.id}`, response).subscribe((r: any) => {
+    this.http.post(`api/response/${this.id}`, response).subscribe((r: any) => {
       this.submission = r.id;
       this.form = null;
     }, (e) => {
