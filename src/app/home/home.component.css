@@ -1,0 +1,60 @@
+.main {
+    margin-top: 20px;
+}
+
+div.save {
+    position: fixed;
+    top: 10px; right: 20px;
+    display: block;
+}
+
+.page-no {
+    background-color: var(--primary-dark);
+    padding: 10px;
+    padding-left: 20px;
+    color: var(--primary-dark-fore);
+    font-weight: 300;
+    font-size: 1.3em;
+}
+
+.page {
+    margin: 20px 0;
+    background-color: white;
+    padding: 20px;
+}
+
+.page.sub {
+    padding: 25px
+}
+
+.add-section {
+    margin: 10px;
+}
+
+.form-options {
+    padding: 30px;
+}
+
+.link-button {
+    margin-left: 20px;
+}
+
+.new-button {
+    float: right;
+}
+
+.main {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    z-index: 100;
+}
+
+@media (max-width: 900px) {
+    .main {
+        margin-top: 60px;
+    }
+    div.save {
+        position: absolute;
+    }
+}

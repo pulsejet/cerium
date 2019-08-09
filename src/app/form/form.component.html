@@ -8,6 +8,17 @@
       <app-widget [widget]="widget"></app-widget>
     </div>
 
+    <div *ngIf="!form.collect_email">
+      Your responses will be anonymous<br/><br/>
+    </div>
+    <div *ngIf="form.collect_email">
+      Your email address will be shared with the creator of this form<br/><br/>
+    </div>
+
+    <div *ngIf="form.single_response">
+      You may submit only one response<br/><br/>
+    </div>
+
     <button class="next" mat-raised-button color="primary"
             [routerLink]="nextPage()" *ngIf="!canSectionSubmit()"
             [disabled]="!isValidated()">
@@ -30,5 +41,17 @@
   <div class="page mat-elevation-z3">
     <div class="title"> Your response has been recorded </div>
     <div class="description"> Thank you for your time! <br/> <span class="monospace">{{ submission }}</span> </div>
+  </div>
+</div>
+
+<div class="main" *ngIf="getError">
+  <div class="page mat-elevation-z3">
+    <div class="title"> There was an error </div>
+    <div class="description"> {{ getError.status }} - {{ getError.message }} </div>
+
+    <ng-container *ngIf="!dataService.isLoggedIn()">
+      <br/>
+      <button mat-raised-button color="accent" (click)="dataService.gotoSSO()">Login</button>
+    </ng-container>
   </div>
 </div>

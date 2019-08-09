@@ -1,0 +1,40 @@
+<div *ngIf="forms" class="main">
+  <div class="page sub mat-elevation-z3">
+    <div class="title"> All Cerium Forms </div> <br/>
+    <div class="description"> These are the forms you have created
+    <a mat-raised-button color="accent" class="new-button" href="{{origin}}/new"> New </a>
+    <br/><br/>
+    </div>
+  </div>
+
+  <mat-accordion>
+
+      <mat-expansion-panel *ngFor="let item of forms">
+        <mat-expansion-panel-header>
+          {{item.Name}}
+        </mat-expansion-panel-header>
+
+        <a mat-raised-button color="primary" href="{{origin}}/edit/{{item.ID}}" >Edit</a>
+        <a mat-raised-button color="primary" href="{{origin}}/m/{{item.ID}}" class="link-button">Form Link</a>
+        <a mat-raised-button color="primary" href="{{origin}}/response/{{item.ID}}-{{item.Token}}"
+           class="link-button">
+          Responses
+        </a>
+        <a mat-raised-button color="warn" (click)="removeSection(item.ID, item.Name)" style="float: right">Delete</a>
+
+      </mat-expansion-panel>
+
+    </mat-accordion>
+</div>
+
+<div class="main" *ngIf="getError">
+  <div class="page mat-elevation-z3">
+    <div class="title"> There was an error </div>
+    <div class="description"> {{ getError.status }} - {{ getError.message }} </div>
+
+    <ng-container *ngIf="!dataService.isLoggedIn()">
+      <br/>
+      <button mat-raised-button color="accent" (click)="dataService.gotoSSO()">Login</button>
+    </ng-container>
+  </div>
+</div>

@@ -9,6 +9,10 @@
       <mat-slide-toggle [(ngModel)]="form.collect_email">
         Collect Email Addresses
       </mat-slide-toggle>
+      <br /> <br />
+      <mat-slide-toggle [disabled]="!form.require_login" [(ngModel)]="form.single_response">
+        One response per person
+      </mat-slide-toggle>
     </div>
   </div>
 
@@ -38,11 +42,20 @@
     <div class="title"> Your form has been created </div> <br/>
     <div class="description"> Thank you for using Cerium! <br/><br/>
       Form:
-      <a target="_blank" href="{{origin}}/form/{{submission}}">{{origin}}/form/{{submission}}</a>
+      <a target="_blank" href="{{origin}}/m/{{submission}}">{{origin}}/m/{{submission}}</a>
+
+      <br/><br/>
+      Edit:
+      <a href="{{origin}}/edit/{{submission}}">{{origin}}/edit/{{submission}}</a>
 
       <br/><br/>
       Responses:
-      <a href="{{origin}}/edit/{{submission}}">{{origin}}/edit/{{submission}}</a>
+      <a href="{{origin}}/response/{{submission}}-{{token}}">{{origin}}/response/{{submission}}-{{token}}</a>
+
+      <br/><br/>
+
+      You can find these links in Home page<br/><br/>
+      <a mat-raised-button color="primary" href="{{origin}}/home" >Return Home</a>
     </div>
   </div>
 </div>

@@ -1,16 +1,23 @@
 <div *ngIf="initialized">
     <div class="head-dark"></div>
 
-    <ng-container *ngIf="dataService.isLoggedIn()">
+    <div *ngIf="dataService.isLoggedIn()" class="profile" (click)="logout()">
         <img class="avatar" src="https://gymkhana.iitb.ac.in{{ dataService.getUser().profile_picture }}" />
 
         <div class="username">
             {{ dataService.getUser().first_name }} {{ dataService.getUser().last_name }} <br/>
             {{ dataService.getUser().roll_number }} <br />
         </div>
-    </ng-container>
+    </div>
 
     <div class="main">
         <router-outlet></router-outlet>
     </div>
+</div>
+
+<div class="main" *ngIf="getError">
+  <div class="m-error mat-elevation-z3">
+    <div class="title"> Something went really wrong :( </div>
+    <div class="description"> {{ getError.status }} - {{ getError.message }} </div>
+  </div>
 </div>

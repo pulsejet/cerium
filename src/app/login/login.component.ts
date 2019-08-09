@@ -33,7 +33,14 @@ export class LoginComponent implements OnInit {
       redirect_uri: window.location.href.split('?')[0]
     }).subscribe(r => {
       this.dataService.setUser(r);
-      this.router.navigate(['/new']);
+
+      const redir = localStorage.getItem('login_redir')
+      if (redir && redir != "") {
+        this.router.navigateByUrl(redir);
+        localStorage.removeItem('login_redir')
+      } else {
+        this.router.navigate(['/home']);
+      }
     }, (e) => {
       alert(e.message);
     });

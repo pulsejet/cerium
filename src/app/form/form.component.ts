@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { IForm, IPage, IFormResponse, IWidget } from '../interfaces';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-form',
@@ -25,11 +26,13 @@ export class FormComponent implements OnInit {
   page: IPage;
   submitted = false;
   submission = '';
+  getError = null;
 
   constructor(
     private route: ActivatedRoute,
     public http: HttpClient,
     public router: Router,
+    public dataService: DataService,
   ) { }
 
   getRouterParams() {
@@ -42,7 +45,7 @@ export class FormComponent implements OnInit {
 
     // Reset to first page
     if (this.pagen !== 0) {
-      this.router.navigate(['/form/', this.id, 0]);
+      this.router.navigate(['/m/', this.id, 0]);
 
       if (this.pagen === undefined || isNaN(this.pagen)) {
         return;
@@ -63,6 +66,10 @@ export class FormComponent implements OnInit {
           this.page = this.form.pages[this.pagen];
         }
       });
+    }, err => {
+      this.getError = {}
+      this.getError.message = err.error.message;
+      this.getError.status = err.status;
     });
   }
 
@@ -99,7 +106,7 @@ export class FormComponent implements OnInit {
   }
 
   nextPage() {
-    return ['/form', this.id, Number(this.pagen) + 1];
+    return ['/m', this.id, Number(this.pagen) + 1];
   }
 
   isValidated(): boolean {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-response',
@@ -15,13 +16,16 @@ export class ResponseComponent implements OnInit {
   constructor(
     public http: HttpClient,
     public route: ActivatedRoute,
+    public dataService: DataService,
   ) { }
 
   ngOnInit() {
-    this.id = this.route.snapshot.params.id;
-    this.http.post<[]>(`api/responses/${this.id}`, { type: 'array' }).subscribe(r => {
-      this.dataset = r;
-    });
+    if (this.dataService.ensureLogin()) {
+      this.id = this.route.snapshot.params.id;
+      this.http.post<[]>(`api/responses/${this.id}`, { type: 'array' }).subscribe(r => {
+        this.dataset = r;
+      });
+    }
   }
 
   download() {

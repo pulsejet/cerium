@@ -4,6 +4,7 @@ export interface IForm {
     can_edit: boolean;
     collect_email: boolean;
     require_login: boolean;
+    single_response: boolean;
 }
 
 export interface IPage {

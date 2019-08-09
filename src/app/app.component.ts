@@ -11,6 +11,7 @@ import { IUser } from './interfaces';
 export class AppComponent implements OnInit {
   title = 'cerium';
   initialized = false;
+  getError = null;
 
   constructor(
     public dataService: DataService,
@@ -28,8 +29,22 @@ export class AppComponent implements OnInit {
     this.http.get<IUser>('api/login').subscribe(u => {
       this.dataService.setUser(u);
       this.initialized = true;
-    }, () => {
-      this.initialized = true;
+    }, err => {
+      if (err.status === 401) {
+        this.initialized = true;
+      } else {
+        this.getError = {}
+        this.getError.message = err.error.message;
+        this.getError.status = err.status;
+      }
     });
+  }
+
+  logout() {
+    if (confirm("Do you want to log out?")) {
+      this.http.get('api/logout').subscribe(u => {
+        this.dataService.setUser(null);
+      })
+    }
   }
 }
