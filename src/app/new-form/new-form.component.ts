@@ -77,7 +77,7 @@ export class NewFormComponent implements OnInit {
 
   getSubmissionUrl(): string {
     return window.location.origin + this.location.prepareExternalUrl(
-      `/m${this.submission}`);
+      `/m/${this.submission}`);
   }
 
   getEditUrl(): string {
