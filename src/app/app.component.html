@@ -13,7 +13,13 @@
     <div class="main">
         <router-outlet></router-outlet>
     </div>
+  
+    <div class="home">
+      <button (click)="this.router.navigate(['/home']);" mat-raised-button color="accent"> HOME </button>
+    </div>
 </div>
+
+
 
 <div class="main" *ngIf="getError">
   <div class="m-error mat-elevation-z3">
