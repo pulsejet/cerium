@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from './data.service';
 import { HttpClient } from '@angular/common/http';
 import { IUser } from './interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit {
   getError = null;
 
   constructor(
+    public router: Router,
     public dataService: DataService,
     public http: HttpClient,
   ) {}
