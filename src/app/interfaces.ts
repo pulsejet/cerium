@@ -5,6 +5,7 @@ export interface IForm {
     collect_email: boolean;
     require_login: boolean;
     single_response: boolean;
+    is_closed: boolean;
 }
 
 export interface IPage {

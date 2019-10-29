@@ -1,6 +1,11 @@
 <div *ngIf="form && form.pages" class="main">
   <div class="page mat-elevation-z3">
-    <div class="page-no">Form Options</div>
+    <div class="page-no">
+      Form Options
+      <mat-slide-toggle style="float: right;" [(ngModel)]="form.is_closed">
+          Close
+        </mat-slide-toggle>
+    </div>
     <div class="form-options">
       <mat-slide-toggle [(ngModel)]="form.require_login">
         Require Login
