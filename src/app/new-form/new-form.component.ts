@@ -18,6 +18,8 @@ export class NewFormComponent implements OnInit {
   id: string;
   origin = window.location.origin;
   token: string = '';
+  close_date: Date;
+  close_time = '00:00';
 
   constructor(
     private route: ActivatedRoute,
@@ -51,6 +53,7 @@ export class NewFormComponent implements OnInit {
 
   save() {
     this.submitted = true;
+    this.form.close_on = this.setTimeFrom(this.close_date, this.close_time);
     const observable = this.id ? this.http.put(`api/form/${this.id}`, this.form)
                                : this.http.post('api/form', this.form);
 
@@ -89,4 +92,24 @@ export class NewFormComponent implements OnInit {
     return window.location.origin + this.location.prepareExternalUrl(
       `/response/${this.submission}-${this.token}`);
   }
+
+  /** Uses an extremely ugly hack to set time */
+  timeChanged() {
+    this.form.close_on = this.setTimeFrom(this.close_date, this.close_time);
+    console.log(this.form.close_on);
+  }
+
+  /**
+   * Returns a Date after setting the time from a string
+   * @param date Date without proper time
+   * @param time Time string HH:MM
+   */
+  setTimeFrom(date: Date, time: string) {
+    const newDate = new Date(date);
+    newDate.setHours(
+      Number(time.substr(0, 2)),
+      Number(time.substr(3, 2)));
+    return newDate;
+  }
+  
 }

@@ -6,6 +6,7 @@ export interface IForm {
     require_login: boolean;
     single_response: boolean;
     is_closed: boolean;
+    close_on: Date;
 }
 
 export interface IPage {
