@@ -41,6 +41,18 @@ export class NewFormComponent implements OnInit {
           return;
         }
         this.form = f;
+        this.close_date = new Date(f.close_on);
+        // Setting correct time string from Date object
+        var hrs : number = this.close_date.getHours();
+        var min : number = this.close_date.getMinutes();
+        if(hrs<10)
+          this.close_time = "0" + hrs.toString();
+        else
+          this.close_time = hrs.toString();
+        if(min<10)
+          this.close_time += ":0" + min.toString();
+        else
+          this.close_time += ":" + min.toString();
       });
     } else {
       this.form = {} as IForm;

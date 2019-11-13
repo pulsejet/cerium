@@ -41,6 +41,10 @@ div.save {
     z-index: 100;
 }
 
+.close_time {
+    padding-left: 50px;
+}
+
 @media (max-width: 900px) {
     .main {
         margin-top: 60px;

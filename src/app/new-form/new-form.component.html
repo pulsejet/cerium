@@ -18,13 +18,13 @@
       <mat-slide-toggle [disabled]="!form.require_login" [(ngModel)]="form.single_response">
         One response per person
       </mat-slide-toggle>
-      <div>Close on: 
+      <div *ngIf="!form.is_closed">Close on: 
           <mat-form-field class="half-width">
               <input (change)="timeChanged()" [(ngModel)]="close_date" matInput [matDatepicker]="toPicker">
               <mat-datepicker-toggle (change)="timeChanged()" matSuffix [for]="toPicker"></mat-datepicker-toggle>
               <mat-datepicker #toPicker></mat-datepicker>
           </mat-form-field>
-          <mat-form-field class="half-width middle-gap" style="padding-left: 50px;">
+          <mat-form-field class="half-width middle-gap close_time">
               <input (change)="timeChanged()" [(ngModel)]="close_time" matInput type="time">
           </mat-form-field>
 
