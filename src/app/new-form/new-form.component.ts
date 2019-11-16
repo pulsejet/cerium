@@ -18,8 +18,8 @@ export class NewFormComponent implements OnInit {
   id: string;
   origin = window.location.origin;
   token: string = '';
-  close_date: Date;
-  close_time = '00:00';
+  close_date: Date = new Date(0);
+  close_time = '05:30';
 
   constructor(
     private route: ActivatedRoute,
@@ -108,7 +108,6 @@ export class NewFormComponent implements OnInit {
   /** Uses an extremely ugly hack to set time */
   timeChanged() {
     this.form.close_on = this.setTimeFrom(this.close_date, this.close_time);
-    console.log(this.form.close_on);
   }
 
   /**
