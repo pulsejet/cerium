@@ -1,4 +1,4 @@
-<div *ngIf="form && form.pages && page" class="main">
+<div *ngIf="form && form.pages && page && !form.is_closed" class="main">
   <div class="page mat-elevation-z3">
     <div class="title">{{ page.title }}</div>
     <div class="description">{{ page.description }}</div>
@@ -35,6 +35,13 @@
   <button *ngIf="form.can_edit" mat-fab class="rl-fab" [routerLink]="['/edit', id]">
     <mat-icon>edit</mat-icon>
   </button>
+</div>
+
+<div class="main" *ngIf="form && form.is_closed">
+    <div class="page mat-elevation-z3">
+      <div class="title"> Form is Closed </div>
+      <div class="description"> No more submissions are accpeted for this form. <br/> </div>
+    </div>
 </div>
 
 <div class="main" *ngIf="!form && submitted">

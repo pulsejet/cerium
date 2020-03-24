@@ -1,6 +1,11 @@
 <div *ngIf="form && form.pages" class="main">
   <div class="page mat-elevation-z3">
-    <div class="page-no">Form Options</div>
+    <div class="page-no">
+      Form Options
+      <mat-slide-toggle style="float: right;" [(ngModel)]="form.is_closed">
+          Close
+        </mat-slide-toggle>
+    </div>
     <div class="form-options">
       <mat-slide-toggle [(ngModel)]="form.require_login">
         Require Login
@@ -13,6 +18,17 @@
       <mat-slide-toggle [disabled]="!form.require_login" [(ngModel)]="form.single_response">
         One response per person
       </mat-slide-toggle>
+      <div>Close on: 
+          <mat-form-field class="half-width">
+              <input [disabled]="form.is_closed" (change)="timeChanged()" [(ngModel)]="close_date" matInput [matDatepicker]="toPicker">
+              <mat-datepicker-toggle (change)="timeChanged()" matSuffix [for]="toPicker"></mat-datepicker-toggle>
+              <mat-datepicker #toPicker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="half-width middle-gap close_time">
+              <input [disabled]="form.is_closed" (change)="timeChanged()" [(ngModel)]="close_time" matInput type="time">
+          </mat-form-field>
+
+      </div>
     </div>
   </div>
 
