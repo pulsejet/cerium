@@ -22,18 +22,19 @@ export class DataService {
     return this.user === null ? false : true;
   }
 
-  public getSSO() {
+  public getSSO(path: string) {
     const url = 'https://gymkhana.iitb.ac.in/sso/oauth/authorize/';
     const clientid = '4Id5WpIQqpGYGflJJqGj9hPgGImTyQGxQuNU8Llh';
     const scope = 'basic profile picture program ldap';
     const baseHref = document.getElementsByTagName('base')[0].href || '';
     const redir = `${baseHref}login`;
-    return `${url}?client_id=${clientid}&response_type=code&scope=${scope}&redirect_uri=${redir}`;
+    const state = encodeURI(path);
+    return `${url}?client_id=${clientid}&response_type=code&scope=${scope}&redirect_uri=${redir}&state=${state}`;
   }
 
   public gotoSSO() {
-    localStorage.setItem('login_redir', window.location.pathname)
-    window.location.href = this.getSSO();
+    var path = window.location.href;
+    window.location.href = this.getSSO(path);
   }
 
   public ensureLogin() {
