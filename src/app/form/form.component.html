@@ -62,3 +62,13 @@
     </ng-container>
   </div>
 </div>
+
+<div class="main" *ngIf="loginRequired">
+  <div class="page mat-elevation-z3">
+    <div class="title"> Please Login to Continue </div>
+    <ng-container *ngIf="!dataService.isLoggedIn()">
+      <br/>
+      <button mat-raised-button color="accent" (click)="dataService.gotoSSO()">Login</button>
+    </ng-container>
+  </div>
+</div>
