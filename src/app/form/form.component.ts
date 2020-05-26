@@ -27,6 +27,7 @@ export class FormComponent implements OnInit {
   submitted = false;
   submission = '';
   getError = null;
+  loginRequired = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -67,9 +68,13 @@ export class FormComponent implements OnInit {
         }
       });
     }, err => {
-      this.getError = {}
-      this.getError.message = err.error.message;
-      this.getError.status = err.status;
+      if (err.status ===  401){
+        this.loginRequired = {}
+      } else {
+        this.getError = {}
+        this.getError.message = err.error.message;
+        this.getError.status = err.status;
+      }
     });
   }
 
