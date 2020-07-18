@@ -33,7 +33,7 @@ export class DataService {
   }
 
   public gotoSSO() {
-    var path = window.location.href;
+    const path = window.location.href;
     window.location.href = this.getSSO(path);
   }
 

@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
       if (err.status === 401) {
         this.initialized = true;
       } else {
-        this.getError = {}
+        this.getError = {};
         this.getError.message = err.error.message;
         this.getError.status = err.status;
       }
@@ -43,10 +43,10 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
-    if (confirm("Do you want to log out?")) {
+    if (confirm('Do you want to log out?')) {
       this.http.get('api/logout').subscribe(u => {
         this.dataService.setUser(null);
-      })
+      });
     }
   }
 }
