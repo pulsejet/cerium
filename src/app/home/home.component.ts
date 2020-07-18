@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 
 interface Forms {
-  ID: string
-  Name: string
-  Token: string
+  ID: string;
+  Name: string;
+  Token: string;
 }
 
 @Component({
@@ -35,10 +35,10 @@ export class HomeComponent implements OnInit {
         this.forms = f;
       }
     }, (err) => {
-      this.getError = {}
+      this.getError = {};
       this.getError.message = err.error.message;
       this.getError.status = err.status;
-    })
+    });
   }
 
   removeSection(id: string, name: string) {
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
       observable.subscribe((result: any) => {
         for (let i = 0; i < this.forms.length; i++) {
           if (this.forms[i].ID === id) {
-            this.forms.splice(i, 1)
+            this.forms.splice(i, 1);
           }
         }
       }, (e) => {

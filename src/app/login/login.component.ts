@@ -12,7 +12,7 @@ import { IUser } from '../interfaces';
 export class LoginComponent implements OnInit {
 
   code: string;
-  origin_url: string;
+  originUrl: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.code = params.code;
       const url = new URL(window.location.href);
-      this.origin_url = decodeURI(url.searchParams.get("state"));
+      this.originUrl = decodeURI(url.searchParams.get('state'));
       this.golang();
     });
   }
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       redirect_uri: window.location.href.split('?')[0]
     }).subscribe(r => {
       this.dataService.setUser(r);
-      window.location.href = this.origin_url;
+      window.location.href = this.originUrl;
     }, (e) => {
       alert(e.message);
     });

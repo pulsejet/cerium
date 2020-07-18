@@ -17,9 +17,9 @@ export class NewFormComponent implements OnInit {
   submission = '';
   id: string;
   origin = window.location.origin;
-  token: string = '';
-  close_date: Date = new Date(0);
-  close_time = '05:30';
+  token = '';
+  closeDate: Date = new Date(0);
+  closeTime = '05:30';
 
   constructor(
     private route: ActivatedRoute,
@@ -41,18 +41,20 @@ export class NewFormComponent implements OnInit {
           return;
         }
         this.form = f;
-        this.close_date = new Date(f.close_on);
+        this.closeDate = new Date(f.close_on);
         // Setting correct time string from Date object
-        var hrs : number = this.close_date.getHours();
-        var min : number = this.close_date.getMinutes();
-        if(hrs<10)
-          this.close_time = "0" + hrs.toString();
-        else
-          this.close_time = hrs.toString();
-        if(min<10)
-          this.close_time += ":0" + min.toString();
-        else
-          this.close_time += ":" + min.toString();
+        const hrs: number = this.closeDate.getHours();
+        const min: number = this.closeDate.getMinutes();
+        if (hrs < 10) {
+          this.closeTime = '0' + hrs.toString();
+        } else {
+          this.closeTime = hrs.toString();
+        }
+        if (min < 10) {
+          this.closeTime += ':0' + min.toString();
+        } else {
+          this.closeTime += ':' + min.toString();
+        }
       });
     } else {
       this.form = {} as IForm;
@@ -65,7 +67,7 @@ export class NewFormComponent implements OnInit {
 
   save() {
     this.submitted = true;
-    this.form.close_on = this.setTimeFrom(this.close_date, this.close_time);
+    this.form.close_on = this.setTimeFrom(this.closeDate, this.closeTime);
     const observable = this.id ? this.http.put(`api/form/${this.id}`, this.form)
                                : this.http.post('api/form', this.form);
 
@@ -107,7 +109,7 @@ export class NewFormComponent implements OnInit {
 
   /** Uses an extremely ugly hack to set time */
   timeChanged() {
-    this.form.close_on = this.setTimeFrom(this.close_date, this.close_time);
+    this.form.close_on = this.setTimeFrom(this.closeDate, this.closeTime);
   }
 
   /**
@@ -122,5 +124,5 @@ export class NewFormComponent implements OnInit {
       Number(time.substr(3, 2)));
     return newDate;
   }
-  
+
 }

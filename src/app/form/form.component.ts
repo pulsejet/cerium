@@ -68,10 +68,10 @@ export class FormComponent implements OnInit {
         }
       });
     }, err => {
-      if (err.status ===  401){
-        this.loginRequired = {}
+      if (err.status ===  401) {
+        this.loginRequired = {};
       } else {
-        this.getError = {}
+        this.getError = {};
         this.getError.message = err.error.message;
         this.getError.status = err.status;
       }
